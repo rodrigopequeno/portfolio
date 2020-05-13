@@ -1,0 +1,6 @@
+package br.com.pequeno.portfolio
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
