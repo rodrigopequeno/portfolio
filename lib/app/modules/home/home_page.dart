@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'home_controller.dart';
 
+//ignore_for_file: public_member_api_docs
+
 class HomePage extends StatefulWidget {
   final String title;
   const HomePage({Key key, this.title = "Home"}) : super(key: key);
