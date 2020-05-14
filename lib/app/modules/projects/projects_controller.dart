@@ -21,7 +21,7 @@ abstract class _ProjectsControllerBase with Store {
 
   @action
   void goTop() => scrollController.animateTo(
-        scrollController.position.minScrollExtent,
+        0,
         duration: Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );

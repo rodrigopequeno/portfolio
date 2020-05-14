@@ -44,7 +44,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       backgroundColor: Theme.of(context).secondaryHeaderColor,
       body: Center(
         child: ListView(
-          shrinkWrap: true,
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
@@ -69,7 +68,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         height: 60,
                         child: Center(
                           child: ListView.builder(
-                            shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemCount: pages.keys.length,
                             itemBuilder: (_, index) {

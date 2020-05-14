@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:portfolio/app/shared/components/presentation/presentation_widget.dart';
-import 'package:portfolio/app/shared/utils/plataform_svg.dart';
+import '../../shared/components/presentation/presentation_widget.dart';
 import 'projects_controller.dart';
 import 'widgets/information/information_widget.dart';
 
@@ -23,7 +22,6 @@ class _ProjectsPageState
       backgroundColor: Theme.of(context).secondaryHeaderColor,
       body: Center(
         child: ListView(
-          shrinkWrap: true,
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
