@@ -40,94 +40,102 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       'education': EducationWidget(),
       'experience': ExperienceWidget()
     };
-    print(size.height * 0.005);
     return Scaffold(
-        backgroundColor: Theme.of(context).secondaryHeaderColor,
-        body: Center(
-          child: ListView(
-            shrinkWrap: true,
-            controller: controller.scrollController,
-            children: <Widget>[
-              PresentationWidget(
-                  title: 'I\'m Rodrigo',
-                  subtitle: 'a mobile devoloper',
-                  goDown: controller.goDown),
-              Container(
-                height: size.height < 900 ? 900 : size.height,
-                width: size.width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: size.width * 0.8,
-                      height: 60,
-                      child: Center(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: pages.keys.length,
-                          itemBuilder: (_, index) {
-                            return FlatButton(
-                              onPressed: () {
-                                controller.goIndex(index);
-                              },
-                              child: Container(
-                                width: size.width * 0.8 / 5.2,
-                                child: Center(
-                                  child: AutoSizeText(
-                                    pages.keys.toList()[index],
-                                    maxLines: 1,
-                                    group: myGroup,
-                                    style:
-                                        Theme.of(context).textTheme.subtitle2,
+      backgroundColor: Theme.of(context).secondaryHeaderColor,
+      body: Center(
+        child: ListView(
+          shrinkWrap: true,
+          controller: controller.scrollController,
+          children: <Widget>[
+            PresentationWidget(
+                title: 'I\'m Rodrigo',
+                subtitle: 'a mobile devoloper',
+                goDown: controller.goDown),
+            Container(
+              height: size.height < 900 ? 900 : size.height,
+              width: size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    height: 60,
+                    width: 60,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: size.width * 0.8,
+                        height: 60,
+                        child: Center(
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: pages.keys.length,
+                            itemBuilder: (_, index) {
+                              return FlatButton(
+                                onPressed: () {
+                                  controller.goIndex(index);
+                                },
+                                child: Container(
+                                  width: size.width * 0.8 / 5.2,
+                                  child: Center(
+                                    child: AutoSizeText(
+                                      pages.keys.toList()[index],
+                                      maxLines: 1,
+                                      group: myGroup,
+                                      style:
+                                          Theme.of(context).textTheme.subtitle2,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30, bottom: 30),
-                      child: Container(
-                        color: Theme.of(context).primaryColor,
-                        height: size.height * 0.008,
-                        width: size.width * 0.8,
-                      ),
-                    ),
-                    CarouselSlider.builder(
-                      itemCount: pages.values.length,
-                      carouselController: controller.carouselController,
-                      itemBuilder: (_, index) {
-                        return pages.values.toList()[index];
-                      },
-                      options: carouselOptions,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 40),
-                        child: Container(
-                          width: 60,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.arrow_upward,
-                              color: Theme.of(context).primaryColor,
-                              size: 50,
-                            ),
-                            onPressed: controller.goTop,
+                              );
+                            },
                           ),
                         ),
                       ),
-                    )
-                  ],
-                ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30, bottom: 30),
+                        child: Container(
+                          color: Theme.of(context).primaryColor,
+                          height: size.height * 0.008,
+                          width: size.width * 0.8,
+                        ),
+                      ),
+                      CarouselSlider.builder(
+                        itemCount: pages.values.length,
+                        carouselController: controller.carouselController,
+                        itemBuilder: (_, index) {
+                          return pages.values.toList()[index];
+                        },
+                        options: carouselOptions,
+                      ),
+                    ],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 40),
+                      child: Container(
+                        width: 60,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_upward,
+                            color: Theme.of(context).primaryColor,
+                            size: 50,
+                          ),
+                          onPressed: controller.goTop,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
