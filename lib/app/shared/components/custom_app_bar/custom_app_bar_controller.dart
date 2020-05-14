@@ -15,5 +15,7 @@ abstract class _CustomAppBarControllerBase with Store {
     Modular.to.pushNamed('/portfolio');
   }
 
+  void goContact() {
+    Modular.to.pushNamed('/contact');
   }
 }

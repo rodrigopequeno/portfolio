@@ -53,7 +53,7 @@ class CustomAppBarWidget extends PreferredSize {
                           ),
                         ),
                         FlatButton(
-                          onPressed: () {},
+                          onPressed: controller.goContact,
                           child: Text(
                             'contact',
                             style: style1,

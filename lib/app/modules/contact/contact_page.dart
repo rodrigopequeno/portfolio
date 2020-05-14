@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../shared/components/custom_app_bar/custom_app_bar_widget.dart';
+import 'contact_controller.dart';
+
+class ContactPage extends StatefulWidget {
+  final String title;
+  const ContactPage({Key key, this.title = "Contact"}) : super(key: key);
+
+  @override
+  _ContactPageState createState() => _ContactPageState();
+}
+
+class _ContactPageState extends ModularState<ContactPage, ContactController> {
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: Container(
+        color: Theme.of(context).primaryColor,
+        height: size.height,
+        width: size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            CustomAppBarWidget(
+              color: Theme.of(context).primaryColor,
+              style1: Theme.of(context).textTheme.subtitle1,
+            ),
+            SizedBox(
+              width: size.width * 0.8,
+              height: size.height * 0.5,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Contact',
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                      Text(
+                        """Have a question or want\nto work together?""",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 80),
+                        child: Row(
+                          children: controller
+                              .getTypesContact()
+                              .map(
+                                (e) => Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 55,
+                                  ),
+                                  child: InkWell(
+                                    child: Image.asset(
+                                      'assets/images/icon_$e.png',
+                                      width: 80,
+                                    ),
+                                    onTap: () async {
+                                      print(e);
+                                      await controller.launchURL(e);
+                                    },
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 100,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

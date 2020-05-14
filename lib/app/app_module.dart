@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
+import 'modules/contact/contact_module.dart';
 import 'modules/home/home_module.dart';
 import 'modules/projects/projects_module.dart';
 import 'shared/components/custom_app_bar/custom_app_bar_controller.dart';
@@ -17,8 +18,12 @@ class AppModule extends MainModule {
 
   @override
   List<Router> get routers => [
-        Router(Modular.initialRoute, module: HomeModule()),
-        Router('/portfolio', module: ProjectsModule()),
+        Router(Modular.initialRoute,
+            module: HomeModule(), transition: TransitionType.fadeIn),
+        Router('/portfolio',
+            module: ProjectsModule(), transition: TransitionType.fadeIn),
+        Router('/contact',
+            module: ContactModule(), transition: TransitionType.fadeIn),
       ];
 
   @override
