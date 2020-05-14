@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 import 'fake_html.dart' if (dart.library.html) 'dart:html' as html;
 import 'fake_ui.dart' if (dart.library.html) 'dart:ui' as ui;
 
-class PlatformSvg {
+mixin PlatformSvg {
   static final Random _random = Random();
 
   static Widget string(String svgString,

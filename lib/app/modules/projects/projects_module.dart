@@ -1,7 +1,8 @@
-import 'package:portfolio/app/modules/projects/widgets/information/information_controller.dart';
-import 'package:portfolio/app/modules/projects/projects_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:portfolio/app/modules/projects/projects_page.dart';
+
+import 'projects_controller.dart';
+import 'projects_page.dart';
+import 'widgets/information/information_controller.dart';
 
 class ProjectsModule extends ChildModule {
   @override

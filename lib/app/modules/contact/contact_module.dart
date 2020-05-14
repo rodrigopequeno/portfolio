@@ -1,6 +1,7 @@
-import 'package:portfolio/app/modules/contact/contact_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:portfolio/app/modules/contact/contact_page.dart';
+
+import 'contact_controller.dart';
+import 'contact_page.dart';
 
 class ContactModule extends ChildModule {
   @override
