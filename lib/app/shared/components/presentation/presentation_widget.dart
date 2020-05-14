@@ -21,10 +21,7 @@ class PresentationWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          CustomAppBarWidget(
-            color: Theme.of(context).primaryColor,
-            style1: Theme.of(context).textTheme.subtitle1,
-          ),
+          CustomAppBarWidget(),
           SizedBox(
             width: size.width * 0.5,
             height: size.height * 0.5,

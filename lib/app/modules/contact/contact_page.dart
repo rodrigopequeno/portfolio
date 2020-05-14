@@ -25,10 +25,7 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            CustomAppBarWidget(
-              color: Theme.of(context).primaryColor,
-              style1: Theme.of(context).textTheme.subtitle1,
-            ),
+            CustomAppBarWidget(),
             SizedBox(
               width: size.width * 0.8,
               height: size.height * 0.5,

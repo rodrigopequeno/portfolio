@@ -2,69 +2,84 @@ import 'package:flutter/material.dart';
 
 import 'custom_app_bar_controller.dart';
 
-class CustomAppBarWidget extends PreferredSize {
-  static CustomAppBarController controller = CustomAppBarController();
-  CustomAppBarWidget({Key key, Widget title, Color color, TextStyle style1})
-      : super(
-          key: key,
-          preferredSize: Size.fromHeight(100),
-          child: Container(
-            color: color ?? Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                        "RP",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 60,
-                          fontFamily: 'Exotc350 Bd BT',
-                        ),
-                      ),
-                    ),
+class CustomAppBarWidget extends StatelessWidget {
+  final CustomAppBarController controller = CustomAppBarController();
+  CustomAppBarWidget({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme.subtitle1;
+    return Container(
+      color: Theme.of(context).primaryColor,
+      height: 100,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  "RP",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 60,
+                    fontFamily: 'Exotc350 Bd BT',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 70),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        FlatButton(
-                          onPressed: controller.goAbout,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 70),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    reverse: true,
+                    children: <Widget>[
+                      Center(
+                        child: InkWell(
+                          onTap: controller.goContact,
                           child: Text(
-                            'about',
-                            style: style1,
+                            'contact',
+                            style: textTheme,
                           ),
                         ),
-                        Padding(
+                      ),
+                      Center(
+                        child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 35),
-                          child: FlatButton(
-                            onPressed: controller.goPortfolio,
+                          child: InkWell(
+                            onTap: controller.goPortfolio,
                             child: Text(
                               'portfolio',
-                              style: style1,
+                              style: textTheme,
                             ),
                           ),
                         ),
-                        FlatButton(
-                          onPressed: controller.goContact,
+                      ),
+                      Center(
+                        child: InkWell(
+                          onTap: controller.goAbout,
                           child: Text(
-                            'contact',
-                            style: style1,
+                            'about',
+                            style: textTheme,
                           ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
-        );
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
