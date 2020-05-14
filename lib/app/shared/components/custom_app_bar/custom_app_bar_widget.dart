@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'custom_app_bar_controller.dart';
+
 class CustomAppBarWidget extends PreferredSize {
+  static CustomAppBarController controller = CustomAppBarController();
   CustomAppBarWidget({Key key, Widget title, Color color, TextStyle style1})
       : super(
           key: key,
@@ -33,7 +36,7 @@ class CustomAppBarWidget extends PreferredSize {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         FlatButton(
-                          onPressed: () {},
+                          onPressed: controller.goAbout,
                           child: Text(
                             'about',
                             style: style1,
@@ -42,7 +45,7 @@ class CustomAppBarWidget extends PreferredSize {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 35),
                           child: FlatButton(
-                            onPressed: () {},
+                            onPressed: controller.goPortfolio,
                             child: Text(
                               'portfolio',
                               style: style1,
