@@ -6,11 +6,53 @@ import 'custom_app_bar_controller.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final CustomAppBarController controller = CustomAppBarController();
-  CustomAppBarWidget({Key key}) : super(key: key);
+  final Function openDrawer;
+  CustomAppBarWidget({Key key, @required this.openDrawer}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme.subtitle1;
+    final size = MediaQuery.of(context).size;
+    if (size.width < 710) {
+      return Container(
+        color: Theme.of(context).primaryColor,
+        height: 100,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              InkWell(
+                onTap: controller.goAbout,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
+                      "RP",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 60,
+                        fontFamily: 'Exotc350 Bd BT',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                child: Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      icon: Icon(Icons.menu),
+                      onPressed: openDrawer,
+                    )),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return Container(
       color: Theme.of(context).primaryColor,
       height: 100,
@@ -38,7 +80,7 @@ class CustomAppBarWidget extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.5,
+              width: size.width - 200,
               child: Align(
                 alignment: Alignment.centerRight,
                 child: ListView(

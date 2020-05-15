@@ -1,3 +1,4 @@
+import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -12,6 +13,7 @@ import 'shared/components/custom_app_bar/custom_app_bar_controller.dart';
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
+        Bind((i) => CustomDrawerController()),
         Bind((i) => CustomAppBarController()),
         Bind((i) => AppController()),
       ];

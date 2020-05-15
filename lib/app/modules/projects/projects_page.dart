@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
 
 import '../../shared/components/presentation/presentation_widget.dart';
 import '../projects/translation/projects_page.i18n.dart';
@@ -19,9 +20,16 @@ class _ProjectsPageState
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+    _openDrawer() {
+      _scaffoldKey.currentState.openEndDrawer();
+    }
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Theme.of(context).secondaryHeaderColor,
+      endDrawer: CustomDrawerWidget(),
       body: Center(
         child: ListView(
           controller: controller.scrollController,
@@ -32,6 +40,7 @@ class _ProjectsPageState
                   """A collection of my projects\ndeveloped in recent years."""
                       .i18n,
               goDown: controller.goDown,
+              openDrawer: _openDrawer,
             ),
             Container(
               height: size.height < 900 ? 900 : size.height,

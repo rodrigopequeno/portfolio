@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
 import '../../shared/components/presentation/presentation_widget.dart';
 import '../home/translation/home_page.i18n.dart';
 import 'home_controller.dart';
@@ -25,6 +26,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
     final myGroup = AutoSizeGroup();
     final carouselOptions = CarouselOptions(
       initialPage: 0,
@@ -41,16 +43,25 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       'education': EducationWidget(),
       'experience': ExperienceWidget()
     };
+
+    _openDrawer() {
+      _scaffoldKey.currentState.openEndDrawer();
+    }
+
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Theme.of(context).secondaryHeaderColor,
+      endDrawer: CustomDrawerWidget(),
       body: Center(
         child: ListView(
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
-                title: 'I\'m Rodrigo'.i18n,
-                subtitle: 'a mobile devoloper'.i18n,
-                goDown: controller.goDown),
+              title: 'I\'m Rodrigo'.i18n,
+              subtitle: 'a mobile devoloper'.i18n,
+              goDown: controller.goDown,
+              openDrawer: _openDrawer,
+            ),
             Container(
               height: size.height < 900 ? 900 : size.height,
               width: size.width,

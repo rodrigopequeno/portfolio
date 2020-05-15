@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../shared/components/custom_app_bar/custom_app_bar_widget.dart';
+import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
 import '../contact/translation/contact_page.i18n.dart';
 import 'contact_controller.dart';
 
@@ -16,9 +19,16 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends ModularState<ContactPage, ContactController> {
   @override
   Widget build(BuildContext context) {
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
     final size = MediaQuery.of(context).size;
 
+    _openDrawer() {
+      _scaffoldKey.currentState.openEndDrawer();
+    }
+
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: CustomDrawerWidget(),
       body: Container(
         color: Theme.of(context).primaryColor,
         height: size.height,
@@ -26,7 +36,7 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            CustomAppBarWidget(),
+            CustomAppBarWidget(openDrawer: _openDrawer),
             SizedBox(
               width: size.width * 0.8,
               height: size.height * 0.5,
@@ -61,7 +71,7 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
                                       width: 80,
                                     ),
                                     onTap: () async {
-                                      print(e);
+                                      log(e);
                                       await controller.launchURL(e);
                                     },
                                   ),

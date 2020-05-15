@@ -4,10 +4,15 @@ import '../custom_app_bar/custom_app_bar_widget.dart';
 class PresentationWidget extends StatelessWidget {
   final String title;
   final String subtitle;
+  final Function openDrawer;
   final void Function(double) goDown;
 
   const PresentationWidget(
-      {Key key, @required this.goDown, this.title, this.subtitle})
+      {Key key,
+      @required this.goDown,
+      this.title,
+      this.subtitle,
+      @required this.openDrawer})
       : super(key: key);
 
   @override
@@ -21,7 +26,9 @@ class PresentationWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          CustomAppBarWidget(),
+          CustomAppBarWidget(
+            openDrawer: openDrawer,
+          ),
           SizedBox(
             width: size.width * 0.5,
             height: size.height * 0.5,
