@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../utils/translation/universal_translation.i18n.dart';
 
 import 'custom_app_bar_controller.dart';
 
@@ -46,7 +47,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         child: InkWell(
                           onTap: controller.goContact,
                           child: Text(
-                            'contact',
+                            'contact'.i18n,
                             style: textTheme,
                           ),
                         ),
@@ -57,7 +58,7 @@ class CustomAppBarWidget extends StatelessWidget {
                           child: InkWell(
                             onTap: controller.goPortfolio,
                             child: Text(
-                              'portfolio',
+                              'portfolio'.i18n,
                               style: textTheme,
                             ),
                           ),
@@ -67,7 +68,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         child: InkWell(
                           onTap: controller.goAbout,
                           child: Text(
-                            'about',
+                            'about'.i18n,
                             style: textTheme,
                           ),
                         ),

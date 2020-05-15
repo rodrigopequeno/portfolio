@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../shared/components/custom_app_bar/custom_app_bar_widget.dart';
+import '../contact/translation/contact_page.i18n.dart';
 import 'contact_controller.dart';
 
 class ContactPage extends StatefulWidget {
@@ -36,11 +37,11 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Contact',
+                        'Contact'.i18n,
                         style: Theme.of(context).textTheme.headline1,
                       ),
                       Text(
-                        """Have a question or want\nto work together?""",
+                        """Have a question or want\nto work together?""".i18n,
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline2,
                       ),

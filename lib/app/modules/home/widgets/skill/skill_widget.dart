@@ -37,7 +37,7 @@ class SkillWidget extends StatelessWidget {
               animation: true,
               percent: skills[key] / 100,
               animationDuration: 750,
-              center: PlatformSvg.asset(
+              center: PlatformSvg().asset(
                 'assets/images/icon_${key.toLowerCase().replaceAll('/', '_')}.svg',
                 width: 50,
                 height: 50,

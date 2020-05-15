@@ -8,10 +8,18 @@ import 'package:flutter_svg/svg.dart';
 import 'fake_html.dart' if (dart.library.html) 'dart:html' as html;
 import 'fake_ui.dart' if (dart.library.html) 'dart:ui' as ui;
 
-mixin PlatformSvg {
+class PlatformSvg {
   static final Random _random = Random();
 
-  static Widget string(String svgString,
+  static final PlatformSvg _singleton = PlatformSvg._internal();
+
+  factory PlatformSvg() {
+    return _singleton;
+  }
+
+  PlatformSvg._internal();
+
+  Widget string(String svgString,
       {double width = 24, double height = 24, String hashCode}) {
     if (kIsWeb) {
       hashCode ??= String.fromCharCodes(
@@ -36,7 +44,7 @@ mixin PlatformSvg {
     return SvgPicture.string(svgString);
   }
 
-  static Widget asset(String assetName,
+  Widget asset(String assetName,
       {double width = 24,
       double height = 24,
       BoxFit fit = BoxFit.contain,

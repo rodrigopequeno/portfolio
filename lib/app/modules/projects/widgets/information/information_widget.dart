@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../shared/utils/plataform_svg.dart';
+import '../../translation/widgets/information_widget.i18n.dart';
 
 class InformationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    if (size.width < 925) {
+    final orientation = MediaQuery.of(context).orientation;
+    if (orientation == Orientation.portrait) {
       const sizeItems = 225.0;
       return Expanded(
         child: ListView(
@@ -43,7 +45,7 @@ class InformationWidget extends StatelessWidget {
   }
 
   _image(double sizeItems) {
-    return PlatformSvg.asset(
+    return PlatformSvg().asset(
       'assets/images/projects.svg',
       width: sizeItems,
       height: sizeItems,
@@ -58,7 +60,7 @@ class InformationWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Sorry',
+            'Sorry'.i18n,
             style:
                 Theme.of(context).textTheme.headline5.copyWith(fontSize: 100),
           ),
@@ -66,7 +68,8 @@ class InformationWidget extends StatelessWidget {
             height: 40,
           ),
           Text(
-            '''I didn't have the opportunity to develop\nsomething that is really ready to sample\nhere, but I have some projects on github\nthat I developed during my studies and\nI would love to have a look.''',
+            '''I didn't have the opportunity to develop\nsomething really ready to put here,\nbut I have some projects on github\nthat I developed during my studies and\nI would love for you to take a look.'''
+                .i18n,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText2,
           ),

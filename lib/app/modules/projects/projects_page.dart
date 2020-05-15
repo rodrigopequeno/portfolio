@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../shared/components/presentation/presentation_widget.dart';
+import '../projects/translation/projects_page.i18n.dart';
 import 'projects_controller.dart';
 import 'widgets/information/information_widget.dart';
 
@@ -25,9 +27,10 @@ class _ProjectsPageState
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
-              title: 'Projects',
+              title: 'Projects'.i18n,
               subtitle:
-                  """A collection of my projects\ndeveloped in recent years.""",
+                  """A collection of my projects\ndeveloped in recent years."""
+                      .i18n,
               goDown: controller.goDown,
             ),
             Container(

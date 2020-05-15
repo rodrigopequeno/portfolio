@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:i18n_extension/i18n_widget.dart';
 
 //ignore: public_member_api_docs
 class AppWidget extends StatelessWidget {
@@ -8,6 +10,15 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       navigatorKey: Modular.navigatorKey,
       title: 'Rodrigo Pequeno',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', "US"),
+        const Locale('pt', "BR"),
+      ],
       theme: ThemeData(
         primaryColor: Colors.blue[900],
         secondaryHeaderColor: Colors.blue[100],
@@ -36,6 +47,9 @@ class AppWidget extends StatelessWidget {
       ),
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
+      builder: (context, widget) {
+        return I18n(child: widget);
+      },
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../shared/components/presentation/presentation_widget.dart';
+import '../home/translation/home_page.i18n.dart';
 import 'home_controller.dart';
 import 'widgets/about/about_widget.dart';
 import 'widgets/education/education_widget.dart';
@@ -47,8 +48,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
-                title: 'I\'m Rodrigo',
-                subtitle: 'a mobile devoloper',
+                title: 'I\'m Rodrigo'.i18n,
+                subtitle: 'a mobile devoloper'.i18n,
                 goDown: controller.goDown),
             Container(
               height: size.height < 900 ? 900 : size.height,
