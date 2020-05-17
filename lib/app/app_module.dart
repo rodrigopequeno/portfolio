@@ -1,4 +1,3 @@
-import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -8,6 +7,7 @@ import 'modules/contact/contact_module.dart';
 import 'modules/home/home_module.dart';
 import 'modules/projects/projects_module.dart';
 import 'shared/components/custom_app_bar/custom_app_bar_controller.dart';
+import 'shared/components/custom_drawer/custom_drawer_controller.dart';
 
 //ignore: public_member_api_docs
 class AppModule extends MainModule {

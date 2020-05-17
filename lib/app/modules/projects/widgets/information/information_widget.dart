@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+
 import '../../../../shared/utils/plataform_svg.dart';
+import '../../../contact/contact_controller.dart';
 import '../../translation/widgets/information_widget.i18n.dart';
 
 class InformationWidget extends StatelessWidget {
+  final ContactController controller = ContactController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -21,7 +25,8 @@ class InformationWidget extends StatelessWidget {
                 height: sizeItems,
                 child: _text(context, CrossAxisAlignment.center),
               ),
-            )
+            ),
+            _buttonGitHub(),
           ],
         ),
       );
@@ -38,7 +43,8 @@ class InformationWidget extends StatelessWidget {
             width: sizeItems,
             height: sizeItems,
             child: _text(context, CrossAxisAlignment.center),
-          )
+          ),
+          _buttonGitHub(),
         ],
       ),
     );
@@ -74,6 +80,24 @@ class InformationWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyText2,
           ),
         ],
+      ),
+    );
+  }
+
+  _buttonGitHub() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Container(
+        width: 50,
+        height: 50,
+        child: InkWell(
+          child: Image.asset(
+            'assets/images/button_github.png',
+          ),
+          onTap: () async {
+            await controller.launchURL('github');
+          },
+        ),
       ),
     );
   }
