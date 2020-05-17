@@ -23,11 +23,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final AutoSizeGroup myGroup = AutoSizeGroup();
+
+  final Map<String, StatelessWidget> pages = {
+    'about': AboutWidget(),
+    'skill': SkillWidget(),
+    'education': EducationWidget(),
+    'experience': ExperienceWidget()
+  };
+
+  _openDrawer() {
+    _scaffoldKey.currentState.openEndDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final _scaffoldKey = GlobalKey<ScaffoldState>();
-    final myGroup = AutoSizeGroup();
     final carouselOptions = CarouselOptions(
       initialPage: 0,
       viewportFraction: 1.0,
@@ -37,16 +49,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       scrollDirection: Axis.horizontal,
       height: size.height < 900 ? 585 : size.height * 0.65,
     );
-    final pages = {
-      'about': AboutWidget(),
-      'skill': SkillWidget(),
-      'education': EducationWidget(),
-      'experience': ExperienceWidget()
-    };
-
-    _openDrawer() {
-      _scaffoldKey.currentState.openEndDrawer();
-    }
 
     return Scaffold(
       key: _scaffoldKey,

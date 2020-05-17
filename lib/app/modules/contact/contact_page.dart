@@ -17,14 +17,15 @@ class ContactPage extends StatefulWidget {
 }
 
 class _ContactPageState extends ModularState<ContactPage, ContactController> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  _openDrawer() {
+    _scaffoldKey.currentState.openEndDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final _scaffoldKey = GlobalKey<ScaffoldState>();
     final size = MediaQuery.of(context).size;
-
-    _openDrawer() {
-      _scaffoldKey.currentState.openEndDrawer();
-    }
 
     return Scaffold(
       key: _scaffoldKey,

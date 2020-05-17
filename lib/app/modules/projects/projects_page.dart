@@ -17,14 +17,15 @@ class ProjectsPage extends StatefulWidget {
 
 class _ProjectsPageState
     extends ModularState<ProjectsPage, ProjectsController> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  _openDrawer() {
+    _scaffoldKey.currentState.openEndDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final _scaffoldKey = GlobalKey<ScaffoldState>();
-
-    _openDrawer() {
-      _scaffoldKey.currentState.openEndDrawer();
-    }
 
     return Scaffold(
       key: _scaffoldKey,
