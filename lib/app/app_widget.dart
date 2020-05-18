@@ -7,6 +7,8 @@ import 'package:i18n_extension/i18n_widget.dart';
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xff0c2461);
+    const secondaryColor = Color(0xffECF2FA);
     return MaterialApp(
       navigatorKey: Modular.navigatorKey,
       title: 'Rodrigo Pequeno',
@@ -20,14 +22,14 @@ class AppWidget extends StatelessWidget {
         const Locale('pt', "BR"),
       ],
       theme: ThemeData(
-        primaryColor: Colors.blue[900],
-        secondaryHeaderColor: Colors.blue[100],
+        primaryColor: primaryColor,
+        secondaryHeaderColor: secondaryColor,
         iconTheme: IconThemeData(color: Colors.white),
         textTheme: TextTheme(
           headline1: TextStyle(color: Colors.white, fontFamily: 'Patua One'),
           headline2: TextStyle(color: Colors.white, fontFamily: 'Patua One'),
           headline5: TextStyle(
-            color: Colors.blue[900],
+            color: primaryColor,
             fontFamily: 'Patua One',
             fontSize: 50,
           ),
@@ -37,12 +39,15 @@ class AppWidget extends StatelessWidget {
             fontSize: 30,
           ),
           subtitle2: TextStyle(
-            color: Colors.blue[900],
+            color: primaryColor,
             fontFamily: 'Patua One',
             fontSize: 30,
           ),
           bodyText2: TextStyle(
-              color: Colors.black, fontFamily: 'Baloo 2', fontSize: 40),
+            color: Colors.black,
+            fontFamily: 'Baloo 2',
+            fontSize: 40,
+          ),
         ),
       ),
       initialRoute: '/',
