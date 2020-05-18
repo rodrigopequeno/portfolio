@@ -13,16 +13,24 @@ abstract class _ProjectsControllerBase with Store {
   double getPositionScroll() => scrollController.offset;
 
   @action
-  void goDown(double height) => scrollController.animateTo(
+  void goDown(double height) {
+    try {
+      scrollController.animateTo(
         height,
         duration: Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
+    } on Exception catch (_) {}
+  }
 
   @action
-  void goTop() => scrollController.animateTo(
+  void goTop() {
+    try {
+      scrollController.animateTo(
         0,
         duration: Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
+    } on Exception catch (_) {}
+  }
 }
