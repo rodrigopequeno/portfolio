@@ -65,7 +65,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               openDrawer: _openDrawer,
             ),
             Visibility(
-              visible: size.width > 750,
+              visible: size.width > 800,
               replacement: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,10 +90,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                         style: Theme.of(context)
                                             .textTheme
                                             .subtitle2
-                                            .copyWith(fontSize: 20),
+                                            .copyWith(fontSize: 30),
                                       ),
                                       Container(
-                                        width: size.width * 0.3,
+                                        width: size.width * 0.2 < 100
+                                            ? 100
+                                            : size.width * 0.2,
                                         height: size.height * 0.005,
                                         color: Theme.of(context).primaryColor,
                                       ),
@@ -110,7 +112,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     .toList(),
               ),
               child: Container(
-                height: size.height < 900 ? 900 : size.height,
+                height: size.height,
                 width: size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +126,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       children: <Widget>[
                         Container(
                           width: size.width * 0.8,
-                          height: 60,
+                          height: 52,
                           child: Center(
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
