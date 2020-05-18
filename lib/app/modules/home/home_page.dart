@@ -112,7 +112,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     .toList(),
               ),
               child: Container(
-                height: size.height,
+                height: size.height > 900 ? size.height : 900,
                 width: size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,24 +172,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         ),
                       ],
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 40),
-                        child: Container(
-                          width: 60,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.arrow_upward,
-                              color: Theme.of(context).primaryColor,
-                              size: 50,
+                    size.height > 900
+                        ? Align(
+                            alignment: Alignment.bottomRight,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 40, vertical: 40),
+                              child: Container(
+                                width: 60,
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.arrow_upward,
+                                    color: Theme.of(context).primaryColor,
+                                    size: 50,
+                                  ),
+                                  onPressed: controller.goTop,
+                                ),
+                              ),
                             ),
-                            onPressed: controller.goTop,
-                          ),
-                        ),
-                      ),
-                    ),
+                          )
+                        : Container(),
                   ],
                 ),
               ),

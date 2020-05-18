@@ -21,7 +21,7 @@ class PresentationWidget extends StatelessWidget {
 
     return Container(
       color: Theme.of(context).primaryColor,
-      height: size.height,
+      height: size.height > 900 ? size.height : 900,
       width: size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,24 +51,27 @@ class PresentationWidget extends StatelessWidget {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-              child: Container(
-                width: 60,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.arrow_downward,
-                    size: 50,
+          size.height > 900
+              ? Align(
+                  alignment: Alignment.bottomRight,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 40),
+                    child: Container(
+                      width: 60,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_downward,
+                          size: 50,
+                        ),
+                        onPressed: () {
+                          goDown(size.height);
+                        },
+                      ),
+                    ),
                   ),
-                  onPressed: () {
-                    goDown(size.height);
-                  },
-                ),
-              ),
-            ),
-          )
+                )
+              : Container(),
         ],
       ),
     );
