@@ -26,7 +26,6 @@ class InformationWidget extends StatelessWidget {
                 child: _text(context, CrossAxisAlignment.center),
               ),
             ),
-            _buttonGitHub(),
           ],
         ),
       );
@@ -44,7 +43,6 @@ class InformationWidget extends StatelessWidget {
             height: sizeItems,
             child: _text(context, CrossAxisAlignment.center),
           ),
-          _buttonGitHub(),
         ],
       ),
     );
@@ -79,6 +77,7 @@ class InformationWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText2,
           ),
+          _buttonGitHub(),
         ],
       ),
     );
@@ -88,8 +87,8 @@ class InformationWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Container(
-        width: 50,
-        height: 50,
+        width: 300,
+        // height: 50,
         child: InkWell(
           child: Image.asset(
             'assets/images/button_github.png',

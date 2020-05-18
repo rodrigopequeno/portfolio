@@ -20,9 +20,12 @@ class SkillWidget extends StatelessWidget {
     };
 
     return Container(
-      width: size.width * 0.5,
+      width: orientation == Orientation.portrait
+          ? size.width * 0.8
+          : size.width * 0.5,
       height: size.height * 0.5,
       child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
         itemCount: skills.keys.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: (orientation == Orientation.portrait) ? 3 : 4,

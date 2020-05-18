@@ -64,85 +64,132 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               goDown: controller.goDown,
               openDrawer: _openDrawer,
             ),
-            Container(
-              height: size.height < 900 ? 900 : size.height,
-              width: size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    height: 60,
-                    width: 60,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        width: size.width * 0.8,
-                        height: 60,
-                        child: Center(
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: pages.keys.length,
-                            itemBuilder: (_, index) {
-                              return FlatButton(
-                                onPressed: () {
-                                  controller.goIndex(index);
-                                },
-                                child: Container(
-                                  width: size.width * 0.8 / 5.2,
-                                  child: Center(
-                                    child: AutoSizeText(
-                                      pages.keys.toList()[index],
-                                      maxLines: 1,
-                                      group: myGroup,
-                                      style:
-                                          Theme.of(context).textTheme.subtitle2,
-                                    ),
+            Visibility(
+              visible: size.width > 750,
+              replacement: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: pages.keys
+                    .map((title) => Center(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 20,
+                                  bottom: 20,
+                                  left: 40,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        """${title[0].toUpperCase()}${title.substring(1)}""",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle2
+                                            .copyWith(fontSize: 20),
+                                      ),
+                                      Container(
+                                        width: size.width * 0.3,
+                                        height: size.height * 0.005,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              );
-                            },
+                              ),
+                              Container(
+                                  height: size.height * 0.7,
+                                  child: pages[title])
+                            ],
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30, bottom: 30),
-                        child: Container(
-                          color: Theme.of(context).primaryColor,
-                          height: size.height * 0.008,
+                        ))
+                    .toList(),
+              ),
+              child: Container(
+                height: size.height < 900 ? 900 : size.height,
+                width: size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: 60,
+                      width: 60,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
                           width: size.width * 0.8,
-                        ),
-                      ),
-                      CarouselSlider.builder(
-                        itemCount: pages.values.length,
-                        carouselController: controller.carouselController,
-                        itemBuilder: (_, index) {
-                          return pages.values.toList()[index];
-                        },
-                        options: carouselOptions,
-                      ),
-                    ],
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 40, vertical: 40),
-                      child: Container(
-                        width: 60,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.arrow_upward,
-                            color: Theme.of(context).primaryColor,
-                            size: 50,
+                          height: 60,
+                          child: Center(
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: pages.keys.length,
+                              itemBuilder: (_, index) {
+                                return FlatButton(
+                                  onPressed: () {
+                                    controller.goIndex(index);
+                                  },
+                                  child: Container(
+                                    width: size.width * 0.8 / 5.2,
+                                    child: Center(
+                                      child: AutoSizeText(
+                                        pages.keys.toList()[index],
+                                        maxLines: 1,
+                                        group: myGroup,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle2,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
-                          onPressed: controller.goTop,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30, bottom: 30),
+                          child: Container(
+                            color: Theme.of(context).primaryColor,
+                            height: size.height * 0.008,
+                            width: size.width * 0.8,
+                          ),
+                        ),
+                        CarouselSlider.builder(
+                          itemCount: pages.values.length,
+                          carouselController: controller.carouselController,
+                          itemBuilder: (_, index) {
+                            return pages.values.toList()[index];
+                          },
+                          options: carouselOptions,
+                        ),
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 40, vertical: 40),
+                        child: Container(
+                          width: 60,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_upward,
+                              color: Theme.of(context).primaryColor,
+                              size: 50,
+                            ),
+                            onPressed: controller.goTop,
+                          ),
                         ),
                       ),
                     ),
-                  )
-                ],
+                  ],
+                ),
               ),
             ),
           ],
