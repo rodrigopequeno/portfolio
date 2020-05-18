@@ -1,16 +1,18 @@
-# portfolio
+# [Portfolio](https://rodrigopequeno.github.io/)
 
-'A new Flutter project. Created by Slidy'
+Website developed with Flutter Web to serve as a personal portfolio
 
-## Getting Started
+## Plugins
+| Name | Usage |
+|:------:|:-------:|
+|[**mobx**](https://pub.dev/packages/mobx#-readme-tab-)| State Management|
+|[**flutter_mobx**](https://pub.dev/packages/flutter_mobx)| State Management|
+|[**flutter_modular**](https://pub.dev/packages/flutter_mobx)| Project Structure |
+|[**effective_dart**](https://pub.dev/packages/effective_dart)| Linter rules|
+|[**i18n_extension**](https://pub.dev/packages/i18n_extension)| Internationalization |
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Built with
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/) - Beautiful native apps in record time.
+- [Visual Studio Code](https://code.visualstudio.com/) - Code editing. Redefined.
