@@ -1,5 +1,5 @@
 name: portfolio
-description: 'A new Flutter project. Created by Slidy'
+description: 'Personal portfolio website developed in flutter'
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -21,11 +21,19 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  dio: ^3.0.9
+  i18n_extension: ^1.3.6
+  url_launcher: ^5.4.7
+  percent_indicator: ^2.1.3
+  auto_size_text: ^2.1.0
+  carousel_slider: ^2.1.0
+  flutter_svg: ^0.17.4
+  effective_dart: ^1.2.1
   flutter_mobx: ^1.1.0
   mobx: ^1.2.0
   flutter_modular: ^1.1.2
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
 
 
@@ -51,8 +59,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -66,12 +74,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Patua One
+      fonts:
+        - asset: assets/fonts/patua_one/PatuaOne-Regular.ttf
+    - family: Baloo 2
+      fonts:
+        - asset: assets/fonts/baloo_2/Baloo2-Regular.ttf
+    - family: Exotc350 Bd BT
+      fonts:
+        - asset: assets/fonts/exotc350_bd_bt/Exotc350BdBTBold.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

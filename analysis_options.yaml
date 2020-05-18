@@ -1,0 +1,11 @@
+include: package:effective_dart/analysis_options.yaml
+
+
+analyzer:
+  exclude:
+    - lib/app/modules/*/*.g.dart
+    - lib/app/*.g.dart
+    - test/**
+linter:
+  rules:
+    public_member_api_docs: false
