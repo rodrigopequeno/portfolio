@@ -5,7 +5,7 @@ extension Localization on String {
   static final _t = Translations(kENUS) +
       {
         kENUS: "Bachelor of computer engineering",
-        kPTBR: "Bacharelado em Engenharia da Computação",
+        kPTBR: "Bacharelando em Engenharia da Computação",
       } +
       {
         kENUS: """Federal University of Sergipe, 16' """,
