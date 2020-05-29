@@ -10,6 +10,22 @@ extension Localization on String {
       {
         kENUS: "a mobile devoloper",
         kPTBR: "um desenvolvedor mobile",
+      } +
+      {
+        kENUS: "about",
+        kPTBR: "sobre",
+      } +
+      {
+        kENUS: "skill",
+        kPTBR: "habilidade",
+      } +
+      {
+        kENUS: "education",
+        kPTBR: "educação",
+      } +
+      {
+        kENUS: "experience",
+        kPTBR: "experiência",
       };
 
   String get i18n => localize(this, _t);
