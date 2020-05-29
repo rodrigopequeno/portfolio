@@ -27,10 +27,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   final AutoSizeGroup myGroup = AutoSizeGroup();
 
   final Map<String, StatelessWidget> pages = {
-    'about'.i18n: AboutWidget(),
-    'skill'.i18n: SkillWidget(),
-    'education'.i18n: EducationWidget(),
-    'experience'.i18n: ExperienceWidget()
+    'about': AboutWidget(),
+    'skill': SkillWidget(),
+    'education': EducationWidget(),
+    'experience': ExperienceWidget()
   };
 
   _openDrawer() {
@@ -140,7 +140,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                     width: size.width * 0.8 / 5.2,
                                     child: Center(
                                       child: AutoSizeText(
-                                        pages.keys.toList()[index],
+                                        pages.keys.toList()[index].i18n,
                                         maxLines: 1,
                                         group: myGroup,
                                         style: Theme.of(context)
