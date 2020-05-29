@@ -27,10 +27,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   final AutoSizeGroup myGroup = AutoSizeGroup();
 
   final Map<String, StatelessWidget> pages = {
-    'about': AboutWidget(),
-    'skill': SkillWidget(),
-    'education': EducationWidget(),
-    'experience': ExperienceWidget()
+    'about'.i18n: AboutWidget(),
+    'skill'.i18n: SkillWidget(),
+    'education'.i18n: EducationWidget(),
+    'experience'.i18n: ExperienceWidget()
   };
 
   _openDrawer() {
