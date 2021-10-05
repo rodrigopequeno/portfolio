@@ -4,16 +4,16 @@ import '../custom_app_bar/custom_app_bar_widget.dart';
 class PresentationWidget extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Function openDrawer;
+  final void Function() openDrawer;
   final void Function(double) goDown;
 
-  const PresentationWidget(
-      {Key key,
-      @required this.goDown,
-      this.title,
-      this.subtitle,
-      @required this.openDrawer})
-      : super(key: key);
+  const PresentationWidget({
+    Key? key,
+    required this.goDown,
+    required this.title,
+    required this.subtitle,
+    required this.openDrawer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

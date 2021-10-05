@@ -2,16 +2,16 @@ import 'package:i18n_extension/i18n_extension.dart';
 import '../../../../../shared/utils/translation/constants.dart';
 
 extension Localization on String {
-  static final _t = Translations(kENUS) +
+  static final _t = Translations(enUS) +
       {
-        kENUS: "Hi.",
-        kPTBR: "Olá.",
+        enUS: "Hi.",
+        ptBR: "Olá.",
       } +
       {
-        kENUS:
-            '''I am a freelance mobile developer in\nSergipe, BR. I am currently a student\nof computer engineering at the\nFederal University of Sergipe.''',
-        kPTBR:
-            '''Sou desenvolvedor mobile freelancer em\nSergipe, BR. Atualmente, sou estudante\nde engenharia da computação na\nUniversidade Federal de Sergipe.''',
+        enUS:
+            '''I'm a Developer Mobile Flutter\nat Ephrom Business Transformation\nand I'm also studying Computer Science\nat the Federal University of Sergipe''',
+        ptBR:
+            '''Eu sou desenvolvedor mobile Flutter\nna Ephrom Business Transformation\ne também estou cursando\nCiencias da Computação na\nUniversidade Federal de Sergipe.''',
       };
 
   String get i18n => localize(this, _t);

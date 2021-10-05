@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../shared/utils/plataform_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../translation/widgets/experience/experience_widget.i18n.dart';
 
 class ExperienceWidget extends StatelessWidget {
@@ -24,7 +24,7 @@ class ExperienceWidget extends StatelessWidget {
       );
     }
 
-    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500;
+    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
     return Container(
       width: size.width,
       child: Row(
@@ -38,7 +38,7 @@ class ExperienceWidget extends StatelessWidget {
   }
 
   _image(double sizeItems) {
-    return PlatformSvg().asset(
+    return SvgPicture.asset(
       'assets/images/experience.svg',
       width: sizeItems,
       height: sizeItems,
@@ -56,6 +56,28 @@ class ExperienceWidget extends StatelessWidget {
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
+            Text(
+              'Developer Mobile Flutter'.i18n,
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            Text(
+              """Ephrom Business Transformation, 21'""".i18n,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Developer Mobile Flutter'.i18n,
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            Text(
+              """Freelancer, 20' - 21'""".i18n,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            SizedBox(
+              height: 50,
+            ),
             Text(
               'Computer Engineering Intern'.i18n,
               style: Theme.of(context).textTheme.headline5,

@@ -7,10 +7,11 @@ import '../../shared/components/custom_app_bar/custom_app_bar_widget.dart';
 import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
 import '../contact/translation/contact_page.i18n.dart';
 import 'contact_controller.dart';
+import 'utils/contacts.dart';
 
 class ContactPage extends StatefulWidget {
   final String title;
-  const ContactPage({Key key, this.title = "Contact"}) : super(key: key);
+  const ContactPage({Key? key, this.title = "Contact"}) : super(key: key);
 
   @override
   _ContactPageState createState() => _ContactPageState();
@@ -20,7 +21,7 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   _openDrawer() {
-    _scaffoldKey.currentState.openEndDrawer();
+    _scaffoldKey.currentState?.openEndDrawer();
   }
 
   @override
@@ -59,8 +60,7 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
                       Padding(
                         padding: const EdgeInsets.only(top: 80),
                         child: Row(
-                          children: controller
-                              .getTypesContact()
+                          children: Contacts.values
                               .map(
                                 (e) => Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -68,11 +68,11 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
                                   ),
                                   child: InkWell(
                                     child: Image.asset(
-                                      'assets/images/icon_$e.png',
+                                      'assets/images/${e.fileName}',
                                       width: 80,
                                     ),
                                     onTap: () async {
-                                      log(e);
+                                      log(e.link);
                                       await controller.launchURL(e);
                                     },
                                   ),

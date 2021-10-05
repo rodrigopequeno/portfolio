@@ -8,14 +8,10 @@ part 'home_controller.g.dart';
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  @observable
   ScrollController scrollController = ScrollController();
 
   @observable
   CarouselController carouselController = CarouselController();
-
-  @action
-  double getPositionScroll() => scrollController.offset;
 
   @action
   void goDown(double height) {

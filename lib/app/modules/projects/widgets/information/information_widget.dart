@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
-import '../../../../shared/utils/plataform_svg.dart';
 import '../../../contact/contact_controller.dart';
+import '../../../contact/utils/contacts.dart';
 import '../../translation/widgets/information_widget.i18n.dart';
 
 class InformationWidget extends StatelessWidget {
@@ -31,7 +32,7 @@ class InformationWidget extends StatelessWidget {
       );
     }
 
-    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500;
+    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
     return Container(
       width: size.width,
       child: Row(
@@ -49,7 +50,7 @@ class InformationWidget extends StatelessWidget {
   }
 
   _image(double sizeItems) {
-    return PlatformSvg().asset(
+    return SvgPicture.asset(
       'assets/images/projects.svg',
       width: sizeItems,
       height: sizeItems,
@@ -66,7 +67,7 @@ class InformationWidget extends StatelessWidget {
           Text(
             'Sorry'.i18n,
             style:
-                Theme.of(context).textTheme.headline5.copyWith(fontSize: 100),
+                Theme.of(context).textTheme.headline5?.copyWith(fontSize: 100),
           ),
           SizedBox(
             height: 40,
@@ -94,7 +95,7 @@ class InformationWidget extends StatelessWidget {
             'assets/images/button_github.png',
           ),
           onTap: () async {
-            await controller.launchURL('github');
+            await controller.launchURL(Contacts.github);
           },
         ),
       ),

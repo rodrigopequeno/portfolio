@@ -2,30 +2,30 @@ import 'package:i18n_extension/i18n_extension.dart';
 import '../../../shared/utils/translation/constants.dart';
 
 extension Localization on String {
-  static final _t = Translations(kENUS) +
+  static final _t = Translations(enUS) +
       {
-        kENUS: "I'm Rodrigo",
-        kPTBR: "Eu sou Rodrigo",
+        enUS: "I'm Rodrigo",
+        ptBR: "Eu sou Rodrigo",
       } +
       {
-        kENUS: "a mobile devoloper",
-        kPTBR: "um desenvolvedor mobile",
+        enUS: "a mobile developer",
+        ptBR: "um desenvolvedor mobile",
       } +
       {
-        kENUS: "about",
-        kPTBR: "sobre",
+        enUS: "about",
+        ptBR: "sobre",
       } +
       {
-        kENUS: "skill",
-        kPTBR: "habilidade",
+        enUS: "skill",
+        ptBR: "habilidade",
       } +
       {
-        kENUS: "education",
-        kPTBR: "educação",
+        enUS: "education",
+        ptBR: "educação",
       } +
       {
-        kENUS: "experience",
-        kPTBR: "experiência",
+        enUS: "experience",
+        ptBR: "experiência",
       };
 
   String get i18n => localize(this, _t);

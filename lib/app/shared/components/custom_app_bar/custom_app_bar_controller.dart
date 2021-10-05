@@ -12,10 +12,10 @@ abstract class _CustomAppBarControllerBase with Store {
   }
 
   void goPortfolio() {
-    Modular.to.pushNamed('/portfolio');
+    Modular.to.pushNamed('/portfolio/');
   }
 
   void goContact() {
-    Modular.to.pushNamed('/contact');
+    Modular.to.pushNamed('/contact/');
   }
 }

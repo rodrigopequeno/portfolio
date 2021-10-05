@@ -1,2 +1,2 @@
-const kPTBR = "pt_br";
-const kENUS = "en_us";
+const ptBR = "pt_br";
+const enUS = "en_us";
