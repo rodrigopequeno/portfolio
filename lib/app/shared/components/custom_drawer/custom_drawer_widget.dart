@@ -9,7 +9,7 @@ class CustomDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme.subtitle1;
+    final textTheme = Theme.of(context).textTheme.subtitle1!;
     final size = MediaQuery.of(context).size;
 
     return Drawer(

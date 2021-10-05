@@ -9,7 +9,7 @@ import 'widgets/information/information_widget.dart';
 
 class ProjectsPage extends StatefulWidget {
   final String title;
-  const ProjectsPage({Key key, this.title = "Projects"}) : super(key: key);
+  const ProjectsPage({Key? key, this.title = "Projects"}) : super(key: key);
 
   @override
   _ProjectsPageState createState() => _ProjectsPageState();
@@ -20,7 +20,7 @@ class _ProjectsPageState
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   _openDrawer() {
-    _scaffoldKey.currentState.openEndDrawer();
+    _scaffoldKey.currentState?.openEndDrawer();
   }
 
   @override

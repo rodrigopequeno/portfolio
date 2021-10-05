@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import '../../../../shared/utils/plataform_svg.dart';
 
 class SkillWidget extends StatelessWidget {
   @override
@@ -38,9 +38,9 @@ class SkillWidget extends StatelessWidget {
               radius: 120,
               lineWidth: 12,
               animation: true,
-              percent: skills[key] / 100,
+              percent: skills[key]! / 100,
               animationDuration: 750,
-              center: PlatformSvg().asset(
+              center: SvgPicture.asset(
                 'assets/images/icon_${key.toLowerCase().replaceAll('/', '_')}.svg',
                 width: 50,
                 height: 50,
@@ -50,7 +50,7 @@ class SkillWidget extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1
-                    .copyWith(fontSize: 24, color: Colors.black),
+                    ?.copyWith(fontSize: 24, color: Colors.black),
               ),
               circularStrokeCap: CircularStrokeCap.round,
               progressColor: Theme.of(context).primaryColor,

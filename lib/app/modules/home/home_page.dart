@@ -16,7 +16,7 @@ import 'widgets/skill/skill_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
-  const HomePage({Key key, this.title = "Home"}) : super(key: key);
+  const HomePage({Key? key, this.title = "Home"}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -34,7 +34,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   };
 
   _openDrawer() {
-    _scaffoldKey.currentState.openEndDrawer();
+    _scaffoldKey.currentState?.openEndDrawer();
   }
 
   @override
@@ -60,7 +60,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           children: <Widget>[
             PresentationWidget(
               title: 'I\'m Rodrigo'.i18n,
-              subtitle: 'a mobile devoloper'.i18n,
+              subtitle: 'a mobile developer'.i18n,
               goDown: controller.goDown,
               openDrawer: _openDrawer,
             ),
@@ -90,7 +90,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                         style: Theme.of(context)
                                             .textTheme
                                             .subtitle2
-                                            .copyWith(fontSize: 30),
+                                            ?.copyWith(fontSize: 30),
                                       ),
                                       Container(
                                         width: size.width * 0.2 < 100
@@ -132,7 +132,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               scrollDirection: Axis.horizontal,
                               itemCount: pages.keys.length,
                               itemBuilder: (_, index) {
-                                return FlatButton(
+                                return TextButton(
                                   onPressed: () {
                                     controller.goIndex(index);
                                   },
@@ -165,7 +165,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         CarouselSlider.builder(
                           itemCount: pages.values.length,
                           carouselController: controller.carouselController,
-                          itemBuilder: (_, index) {
+                          itemBuilder: (_, index, realIndex) {
                             return pages.values.toList()[index];
                           },
                           options: carouselOptions,

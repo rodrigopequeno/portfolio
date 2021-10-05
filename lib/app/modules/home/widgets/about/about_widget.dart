@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../shared/utils/plataform_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../translation/widgets/about/about_widget.i18n.dart';
 
 class AboutWidget extends StatelessWidget {
@@ -25,7 +25,7 @@ class AboutWidget extends StatelessWidget {
       );
     }
 
-    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500;
+    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
     return Container(
       width: size.width,
       child: Row(
@@ -39,7 +39,7 @@ class AboutWidget extends StatelessWidget {
   }
 
   _image(double sizeItems) {
-    return PlatformSvg().asset(
+    return SvgPicture.asset(
       'assets/images/about.svg',
       width: sizeItems,
       height: sizeItems,
@@ -62,7 +62,7 @@ class AboutWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
-              '''I am a freelance mobile developer in\nSergipe, BR. I am currently a student\nof computer engineering at the\nFederal University of Sergipe.'''
+              '''I'm a Developer Mobile Flutter\nat Ephrom Business Transformation\nand I'm also studying Computer Science\nat the Federal University of Sergipe'''
                   .i18n,
               textAlign: textAlign,
               style: Theme.of(context).textTheme.bodyText2,

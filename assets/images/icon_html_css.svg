@@ -1,64 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Creator: CorelDRAW 2019 (64 Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.7908mm" height="4.2351mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 1.62 1.43"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:dc="http://purl.org/dc/elements/1.1/"
- xmlns:cc="http://creativecommons.org/ns#"
- xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
- xmlns:svg="http://www.w3.org/2000/svg"
- xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
- xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
- inkscape:version="0.91 r13725"
- sodipodi:docname="CSS3.svg">
- <defs>
-  <style type="text/css">
-   <![CDATA[
-    .fil0 {fill:black}
-    .fil5 {fill:#264DE4}
-    .fil6 {fill:#2965F1}
-    .fil1 {fill:#E44D26}
-    .fil3 {fill:#EBEBEB}
-    .fil2 {fill:#F16529}
-    .fil4 {fill:white}
-   ]]>
-  </style>
- </defs>
- <g id="Camada_x0020_1">
-  <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_1486818108880">
-   <g>
-    <path class="fil0" d="M0.07 0l0.05 0 0 0.05 0.04 0 0 -0.05 0.05 0 0 0.15 -0.05 0 0 -0.05 -0.04 0 0 0.05 -0.05 0 0 -0.15zm0.21 0.05l-0.04 0 0 -0.05 0.13 0 0 0.05 -0.04 0 0 0.1 -0.05 0 0 -0.1zm0.11 -0.05l0.05 0 0.03 0.05 0.03 -0.05 0.05 0 0 0.15 -0.05 0 0 -0.07 -0.03 0.05 -0.03 -0.05 0 0.07 -0.05 0 0 -0.15zm0.19 0l0.05 0 0 0.1 0.07 0 0 0.05 -0.12 0 0 -0.15zm0 0l0 0 0 0z"/>
-   </g>
-   <g>
-    <path class="fil1" d="M0.07 1l-0.07 -0.78 0.77 0 -0.07 0.78 -0.31 0.09 -0.31 -0.09zm0 0l0 0 0 0z"/>
-   </g>
-   <g>
-    <path class="fil2" d="M0.38 1.02l0 -0.74 0.31 0 -0.06 0.67 -0.25 0.07zm0 0l0 0 0 0z"/>
-   </g>
-   <g>
-    <path class="fil3" d="M0.14 0.37l0.24 0 0 0.1 -0.14 0 0.01 0.1 0.13 0 0 0.1 -0.22 0 -0.03 -0.29zm0.03 0.34l0.1 0 0.01 0.08 0.11 0.03 0 0.1 -0.2 -0.06 -0.01 -0.15zm0 0l0 0 0 0z"/>
-   </g>
-   <g>
-    <path class="fil4" d="M0.62 0.37l-0.24 0 0 0.1 0.23 0 0.01 -0.1zm-0.02 0.19l-0.22 0 0 0.1 0.12 0 -0.01 0.12 -0.11 0.03 0 0.1 0.2 -0.05 0.03 -0.3zm0 0l0 0 0 0z"/>
-   </g>
-  </g>
-  <g>
-   <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.35" inkscape:cx="181.367" inkscape:cy="256" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="1366" inkscape:window-height="704" inkscape:window-x="0" inkscape:window-y="27" inkscape:window-maximized="1"/>
-   <g id="layer1" inkscape:label="Calque 1" inkscape:groupmode="layer">
-    <g id="g3013">
-     <polygon id="polygon2989" class="fil5" points="1.62,0.59 1.55,1.35 1.25,1.43 0.94,1.35 0.87,0.59 "/>
-     <polygon id="polygon2991" class="fil6" points="1.49,1.3 1.55,0.65 1.25,0.65 1.25,1.37 "/>
-     <polygon id="polygon2993" class="fil3" points="1.03,0.93 1.04,1.02 1.25,1.02 1.25,0.93 "/>
-     <polygon id="polygon2995" class="fil3" points="1.25,0.74 1.25,0.74 1.01,0.74 1.02,0.84 1.25,0.84 "/>
-     <polygon id="polygon2997" class="fil3" points="1.25,1.27 1.25,1.17 1.25,1.17 1.14,1.14 1.14,1.07 1.09,1.07 1.04,1.07 1.06,1.22 1.25,1.27 "/>
-     <polygon id="path2999" class="fil0" points="1.05,0.38 1.16,0.38 1.16,0.43 1.1,0.43 1.1,0.48 1.16,0.48 1.16,0.52 1.05,0.52 " inkscape:connector-curvature="0"/>
-     <polygon id="path3001" class="fil0" points="1.18,0.38 1.3,0.38 1.3,0.42 1.23,0.42 1.23,0.43 1.3,0.43 1.3,0.53 1.18,0.53 1.18,0.48 1.25,0.48 1.25,0.47 1.18,0.47 " inkscape:connector-curvature="0"/>
-     <polygon id="path3003" class="fil0" points="1.32,0.38 1.43,0.38 1.43,0.42 1.37,0.42 1.37,0.43 1.43,0.43 1.43,0.53 1.32,0.53 1.32,0.48 1.39,0.48 1.39,0.47 1.32,0.47 " inkscape:connector-curvature="0"/>
-     <polygon id="polygon3005" class="fil4" points="1.36,1.02 1.35,1.14 1.25,1.17 1.25,1.27 1.44,1.22 1.44,1.2 1.46,0.96 1.46,0.93 1.48,0.74 1.25,0.74 1.25,0.84 1.38,0.84 1.37,0.93 1.25,0.93 1.25,1.02 "/>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="18.107" height="16.007" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd" viewBox="0 0 1.62 1.43">
+    <g id="Camada_x0020_1">
+        <g id="_1486818108880">
+            <path class="fil0" style="fill:#000;" d="M.07 0h.05v.05h.04V0h.05v.15H.16V.1H.12v.05H.07V0zm.21.05H.24V0h.13v.05H.33v.1H.28v-.1zM.39 0h.05l.03.05L.5 0h.05v.15H.5V.08L.47.13.44.08v.07H.39V0zm.19 0h.05v.1H.7v.05H.58V0zm0 0z" />
+            <path d="M.07 1 0 .22h.77L.7 1l-.31.09L.08 1zm0 0z" style="fill:#e44d26" />
+            <path d="M.38 1.02V.28h.31L.63.95l-.25.07zm0 0z" style="fill:#f16529" />
+            <path class="fil3" style="fill:#ebebeb;" d="M.14.37h.24v.1H.24l.01.1h.13v.1H.16L.13.38zm.03.34h.1l.01.08.11.03v.1L.19.86.18.71zm0 0z" />
+            <path class="fil4" style="fill:#fff;" d="M.62.37H.38v.1h.23l.01-.1zM.6.56H.38v.1H.5L.49.78.38.81v.1l.2-.05.03-.3zm0 0z" />
+        </g>
+        <g id="layer1">
+            <g id="g3013">
+                <path id="polygon2989" style="fill:#264de4" d="m1.62.59-.07.76-.3.08-.31-.08L.87.59z" />
+                <path id="polygon2991" style="fill:#2965f1" d="m1.49 1.3.06-.65h-.3v.72z" />
+                <path id="polygon2993" class="fil3" style="fill:#ebebeb;" d="m1.03.93.01.09h.21V.93z" />
+                <path id="polygon2995" class="fil3" style="fill:#ebebeb;" d="M1.25.74h-.24l.01.1h.23z" />
+                <path id="polygon2997" class="fil3" style="fill:#ebebeb;" d="M1.25 1.27v-.1l-.11-.03v-.07h-.1l.02.15.19.05z" />
+                <path id="path2999" class="fil0" style="fill:#000;" d="M1.05.38h.11v.05H1.1v.05h.06v.04h-.11z" />
+                <path id="path3001" class="fil0" style="fill:#000;" d="M1.18.38h.12v.04h-.07v.01h.07v.1h-.12V.48h.07V.47h-.07z" />
+                <path id="path3003" class="fil0" style="fill:#000;" d="M1.32.38h.11v.04h-.06v.01h.06v.1h-.11V.48h.07V.47h-.07z" />
+                <path id="polygon3005" class="fil4" style="fill:#fff;" d="m1.36 1.02-.01.12-.1.03v.1l.19-.05V1.2l.02-.24V.93l.02-.19h-.23v.1h.13l-.01.09h-.12v.09z" />
+            </g>
+        </g>
     </g>
-   </g>
-  </g>
- </g>
 </svg>

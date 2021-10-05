@@ -6,12 +6,15 @@ import 'custom_app_bar_controller.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final CustomAppBarController controller = CustomAppBarController();
-  final Function openDrawer;
-  CustomAppBarWidget({Key key, @required this.openDrawer}) : super(key: key);
+  final void Function() openDrawer;
+  CustomAppBarWidget({
+    Key? key,
+    required this.openDrawer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme.subtitle1;
+    final textTheme = Theme.of(context).textTheme.subtitle1!;
     final size = MediaQuery.of(context).size;
     if (size.width < 710) {
       return Container(

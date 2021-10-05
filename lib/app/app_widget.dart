@@ -10,7 +10,6 @@ class AppWidget extends StatelessWidget {
     const primaryColor = Color(0xff0c2461);
     const secondaryColor = Color(0xffECF2FA);
     return MaterialApp(
-      navigatorKey: Modular.navigatorKey,
       title: 'Rodrigo Pequeno',
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
@@ -51,10 +50,9 @@ class AppWidget extends StatelessWidget {
         ),
       ),
       initialRoute: '/',
-      onGenerateRoute: Modular.generateRoute,
       builder: (context, widget) {
-        return I18n(child: widget);
+        return I18n(child: widget!);
       },
-    );
+    ).modular();
   }
 }

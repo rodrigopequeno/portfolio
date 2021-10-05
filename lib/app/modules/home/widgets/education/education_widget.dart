@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../shared/utils/plataform_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../translation/widgets/education/education_widget.i18n.dart';
 
 class EducationWidget extends StatelessWidget {
@@ -23,7 +23,7 @@ class EducationWidget extends StatelessWidget {
       );
     }
 
-    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500;
+    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
     return Container(
       width: size.width,
       child: Row(
@@ -37,7 +37,7 @@ class EducationWidget extends StatelessWidget {
   }
 
   _image(double sizeItems) {
-    return PlatformSvg().asset(
+    return SvgPicture.asset(
       'assets/images/education.svg',
       width: sizeItems,
       height: sizeItems,
@@ -56,18 +56,29 @@ class EducationWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              'Bachelor of computer engineering'.i18n,
+              'Bachelor of Computer Science'.i18n,
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
-              """Federal University of Sergipe, 16' """.i18n,
+              """Federal University of Sergipe, 20' """.i18n,
               style: Theme.of(context).textTheme.bodyText2,
             ),
             SizedBox(
               height: 50,
             ),
             Text(
-              'Mechanical technician'.i18n,
+              'Bachelor of Computer Engineering'.i18n,
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            Text(
+              """Federal University of Sergipe, 16' - 20' (Not finished)""".i18n,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Mechanical Technician'.i18n,
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
