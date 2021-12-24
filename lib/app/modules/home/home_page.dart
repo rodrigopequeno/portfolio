@@ -7,6 +7,7 @@ import 'package:portfolio/app/modules/home/enums/sub_tab_home.dart';
 import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_widget.dart';
 import 'package:portfolio/app/shared/components/presentation/presentation_widget.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 //ignore_for_file: public_member_api_docs
 
@@ -69,12 +70,14 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      value.title(context),
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle2
-                                          ?.copyWith(fontSize: 30),
+                                    TextRenderer(
+                                      text: Text(
+                                        value.title(context),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle2
+                                            ?.copyWith(fontSize: 30),
+                                      ),
                                     ),
                                     Container(
                                       width: size.width * 0.2 < 100
@@ -118,22 +121,26 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               scrollDirection: Axis.horizontal,
                               itemCount: SubTabHome.values.length,
                               itemBuilder: (_, index) {
-                                return TextButton(
-                                  onPressed: () {
-                                    controller.goIndex(index);
-                                  },
-                                  child: SizedBox(
-                                    width: size.width * 0.8 / 5.2,
-                                    child: Center(
-                                      child: AutoSizeText(
-                                        SubTabHome.values
-                                            .toList()[index]
-                                            .title(context),
-                                        maxLines: 1,
-                                        group: myGroup,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .subtitle2,
+                                return TextRenderer(
+                                  text: TextButton(
+                                    onPressed: () {
+                                      controller.goIndex(index);
+                                    },
+                                    child: SizedBox(
+                                      width: size.width * 0.8 / 5.2,
+                                      child: Center(
+                                        child: TextRenderer(
+                                          text: AutoSizeText(
+                                            SubTabHome.values
+                                                .toList()[index]
+                                                .title(context),
+                                            maxLines: 1,
+                                            group: myGroup,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .subtitle2,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

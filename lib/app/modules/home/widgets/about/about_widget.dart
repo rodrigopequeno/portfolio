@@ -1,6 +1,10 @@
+import 'dart:html';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class AboutWidget extends StatelessWidget {
   @override
@@ -65,14 +69,20 @@ class AboutWidget extends StatelessWidget {
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              AppLocalizations.of(context)!.aboutTitle,
-              style: Theme.of(context).textTheme.headline5,
+            TextRenderer(
+              element: kIsWeb ? HeadingElement.h1() : null,
+              text: Text(
+                AppLocalizations.of(context)!.aboutTitle,
+                style: Theme.of(context).textTheme.headline5,
+              ),
             ),
-            Text(
-              AppLocalizations.of(context)!.aboutSubtitle,
-              textAlign: textAlign,
-              style: Theme.of(context).textTheme.bodyText2,
+            TextRenderer(
+              element: kIsWeb ? HeadingElement.h2() : null,
+              text: Text(
+                AppLocalizations.of(context)!.aboutSubtitle,
+                textAlign: textAlign,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
             ),
           ],
         ),

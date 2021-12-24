@@ -1,6 +1,10 @@
+import 'dart:html';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class EducationWidget extends StatelessWidget {
   @override
@@ -59,39 +63,61 @@ class EducationWidget extends StatelessWidget {
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(
-              AppLocalizations.of(context)!.bachelorScienceTitle,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            Text(
-              AppLocalizations.of(context)!.bachelorScienceSubtitle,
-              style: Theme.of(context).textTheme.bodyText2,
+            _buildEducation(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.bachelorScienceTitle,
+              subTitle: AppLocalizations.of(context)!.bachelorScienceSubtitle,
             ),
             const SizedBox(
               height: 50,
             ),
-            Text(
-              AppLocalizations.of(context)!.bachelorEngineeringTitle,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            Text(
-              AppLocalizations.of(context)!.bachelorEngineeringSubtitle,
-              style: Theme.of(context).textTheme.bodyText2,
+            _buildEducation(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.bachelorEngineeringTitle,
+              subTitle:
+                  AppLocalizations.of(context)!.bachelorEngineeringSubtitle,
             ),
             const SizedBox(
               height: 50,
             ),
-            Text(
-              AppLocalizations.of(context)!.technicianTitle,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            Text(
-              AppLocalizations.of(context)!.technicianSubtitle,
-              style: Theme.of(context).textTheme.bodyText2,
+            _buildEducation(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.technicianTitle,
+              subTitle: AppLocalizations.of(context)!.technicianSubtitle,
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildEducation({
+    required CrossAxisAlignment crossAxisAlignment,
+    required BuildContext context,
+    required String title,
+    required String subTitle,
+  }) {
+    return Column(
+      crossAxisAlignment: crossAxisAlignment,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        TextRenderer(
+          element: kIsWeb ? HeadingElement.h5() : null,
+          text: Text(
+            title,
+            style: Theme.of(context).textTheme.headline5,
+          ),
+        ),
+        TextRenderer(
+          text: Text(
+            subTitle,
+            style: Theme.of(context).textTheme.bodyText2,
+          ),
+        ),
+      ],
     );
   }
 }
