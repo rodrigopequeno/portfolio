@@ -7,13 +7,13 @@ class AppLocalizationsEn extends AppLocalizations with En {
 
   @override
   String get aboutSubtitle =>
-      '''I'm a Developer Mobile Flutter\nat Ephrom Business Transformation\nand I'm also studying Computer Science\nat the Federal University of Sergipe''';
+      '''I'm a Developer Mobile Flutter\nat Ambev Tech and I'm also\nstudying Computer Science\nat the Federal University of Sergipe''';
 
   @override
   String get aboutTitle => 'Hi.';
 
   @override
-  String get ambevTechTitle => 'AmbevTech';
+  String get ambevTechTitle => "Ambev Tech, 21'";
 
   @override
   String get bachelorEngineeringSubtitle =>
@@ -42,7 +42,7 @@ class AppLocalizationsEn extends AppLocalizations with En {
   String get education => 'education';
 
   @override
-  String get ephromTitle => """Ephrom Business Transformation, 21'""";
+  String get ephromTitle => """Ephrom Business Transformation, 21' - 21'""";
 
   @override
   String get experience => 'experience';
