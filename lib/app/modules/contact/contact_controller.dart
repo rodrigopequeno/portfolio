@@ -1,7 +1,6 @@
 import 'package:mobx/mobx.dart';
+import 'package:portfolio/app/modules/contact/utils/contacts.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'utils/contacts.dart';
 
 part 'contact_controller.g.dart';
 

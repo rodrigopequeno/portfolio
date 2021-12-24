@@ -13,7 +13,7 @@ abstract class _ProjectsControllerBase with Store {
     try {
       scrollController.animateTo(
         height,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
     } on Exception catch (_) {}
@@ -24,7 +24,7 @@ abstract class _ProjectsControllerBase with Store {
     try {
       scrollController.animateTo(
         0,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
     } on Exception catch (_) {}

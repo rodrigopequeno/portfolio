@@ -1,16 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
-import '../../shared/components/presentation/presentation_widget.dart';
-import '../home/translation/home_page.i18n.dart';
-import 'home_controller.dart';
-import 'widgets/about/about_widget.dart';
-import 'widgets/education/education_widget.dart';
-import 'widgets/experience/experience_widget.dart';
-import 'widgets/skill/skill_widget.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:portfolio/app/modules/home/enums/sub_tab_home.dart';
+import 'package:portfolio/app/modules/home/home_controller.dart';
+import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_widget.dart';
+import 'package:portfolio/app/shared/components/presentation/presentation_widget.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 //ignore_for_file: public_member_api_docs
 
@@ -26,14 +23,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final AutoSizeGroup myGroup = AutoSizeGroup();
 
-  final Map<String, StatelessWidget> pages = {
-    'about': AboutWidget(),
-    'skill': SkillWidget(),
-    'education': EducationWidget(),
-    'experience': ExperienceWidget()
-  };
-
-  _openDrawer() {
+  void _openDrawer() {
     _scaffoldKey.currentState?.openEndDrawer();
   }
 
@@ -41,12 +31,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final carouselOptions = CarouselOptions(
-      initialPage: 0,
       viewportFraction: 1.0,
-      autoPlay: false,
-      reverse: false,
       enableInfiniteScroll: false,
-      scrollDirection: Axis.horizontal,
       height: size.height < 900 ? 585 : size.height * 0.65,
     );
 
@@ -59,8 +45,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
-              title: 'I\'m Rodrigo'.i18n,
-              subtitle: 'a mobile developer'.i18n,
+              title: AppLocalizations.of(context)!.presentationTitle,
+              subtitle: AppLocalizations.of(context)!.presentationSubtitle,
               goDown: controller.goDown,
               openDrawer: _openDrawer,
             ),
@@ -68,84 +54,93 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               visible: size.width > 800,
               replacement: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: pages.keys
-                    .map((title) => Center(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 20,
-                                  bottom: 20,
-                                  left: 40,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        """${title[0].toUpperCase()}${title.substring(1)}""",
+                children: SubTabHome.values
+                    .map(
+                      (value) => Center(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 20,
+                                bottom: 20,
+                                left: 40,
+                              ),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TextRenderer(
+                                      text: Text(
+                                        value.title(context),
                                         style: Theme.of(context)
                                             .textTheme
                                             .subtitle2
                                             ?.copyWith(fontSize: 30),
                                       ),
-                                      Container(
-                                        width: size.width * 0.2 < 100
-                                            ? 100
-                                            : size.width * 0.2,
-                                        height: size.height * 0.005,
-                                        color: Theme.of(context).primaryColor,
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                    Container(
+                                      width: size.width * 0.2 < 100
+                                          ? 100
+                                          : size.width * 0.2,
+                                      height: size.height * 0.005,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Container(
-                                  height: size.height * 0.7,
-                                  child: pages[title])
-                            ],
-                          ),
-                        ))
+                            ),
+                            SizedBox(
+                              height: size.height * 0.7,
+                              child: value.subTab,
+                            )
+                          ],
+                        ),
+                      ),
+                    )
                     .toList(),
               ),
-              child: Container(
+              child: SizedBox(
                 height: size.height > 900 ? size.height : 900,
                 width: size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
+                    const SizedBox(
                       height: 60,
                       width: 60,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: size.width * 0.8,
                           height: 52,
                           child: Center(
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
-                              itemCount: pages.keys.length,
+                              itemCount: SubTabHome.values.length,
                               itemBuilder: (_, index) {
-                                return TextButton(
-                                  onPressed: () {
-                                    controller.goIndex(index);
-                                  },
-                                  child: Container(
-                                    width: size.width * 0.8 / 5.2,
-                                    child: Center(
-                                      child: AutoSizeText(
-                                        pages.keys.toList()[index].i18n,
-                                        maxLines: 1,
-                                        group: myGroup,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .subtitle2,
+                                return TextRenderer(
+                                  text: TextButton(
+                                    onPressed: () {
+                                      controller.goIndex(index);
+                                    },
+                                    child: SizedBox(
+                                      width: size.width * 0.8 / 5.2,
+                                      child: Center(
+                                        child: TextRenderer(
+                                          text: AutoSizeText(
+                                            SubTabHome.values
+                                                .toList()[index]
+                                                .title(context),
+                                            maxLines: 1,
+                                            group: myGroup,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .subtitle2,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -163,35 +158,36 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           ),
                         ),
                         CarouselSlider.builder(
-                          itemCount: pages.values.length,
+                          itemCount: SubTabHome.values.length,
                           carouselController: controller.carouselController,
                           itemBuilder: (_, index, realIndex) {
-                            return pages.values.toList()[index];
+                            return SubTabHome.values.toList()[index].subTab;
                           },
                           options: carouselOptions,
                         ),
                       ],
                     ),
-                    size.height > 900
-                        ? Align(
-                            alignment: Alignment.bottomRight,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 40, vertical: 40),
-                              child: Container(
-                                width: 60,
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.arrow_upward,
-                                    color: Theme.of(context).primaryColor,
-                                    size: 50,
-                                  ),
-                                  onPressed: controller.goTop,
-                                ),
+                    if (size.height > 900)
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 40,
+                            vertical: 40,
+                          ),
+                          child: SizedBox(
+                            width: 60,
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.arrow_upward,
+                                color: Theme.of(context).primaryColor,
+                                size: 50,
                               ),
+                              onPressed: controller.goTop,
                             ),
-                          )
-                        : Container(),
+                          ),
+                        ),
+                      )
                   ],
                 ),
               ),

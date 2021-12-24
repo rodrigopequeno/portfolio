@@ -1,6 +1,10 @@
+import 'dart:html';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../translation/widgets/experience/experience_widget.i18n.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class ExperienceWidget extends StatelessWidget {
   @override
@@ -8,11 +12,11 @@ class ExperienceWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     if (orientation == Orientation.portrait) {
-      final sizeItems = 225.0;
-      return Container(
+      const sizeItems = 225.0;
+      return SizedBox(
         width: size.width * 0.8,
         child: ListView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             _image(sizeItems),
             Padding(
@@ -25,7 +29,7 @@ class ExperienceWidget extends StatelessWidget {
     }
 
     final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
-    return Container(
+    return SizedBox(
       width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,7 +41,7 @@ class ExperienceWidget extends StatelessWidget {
     );
   }
 
-  _image(double sizeItems) {
+  Widget _image(double sizeItems) {
     return SvgPicture.asset(
       'assets/images/experience.svg',
       width: sizeItems,
@@ -45,8 +49,11 @@ class ExperienceWidget extends StatelessWidget {
     );
   }
 
-  _text(BuildContext context, double sizeItems,
-      CrossAxisAlignment crossAxisAlignment) {
+  Widget _text(
+    BuildContext context,
+    double sizeItems,
+    CrossAxisAlignment crossAxisAlignment,
+  ) {
     return SizedBox(
       width: sizeItems,
       height: sizeItems,
@@ -56,39 +63,69 @@ class ExperienceWidget extends StatelessWidget {
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(
-              'Developer Mobile Flutter'.i18n,
-              style: Theme.of(context).textTheme.headline5,
+            _buildExperience(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.developerMobileFlutter,
+              subTitle: AppLocalizations.of(context)!.ambevTechTitle,
             ),
-            Text(
-              """Ephrom Business Transformation, 21'""".i18n,
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
-              'Developer Mobile Flutter'.i18n,
-              style: Theme.of(context).textTheme.headline5,
+            _buildExperience(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.developerMobileFlutter,
+              subTitle: AppLocalizations.of(context)!.ephromTitle,
             ),
-            Text(
-              """Freelancer, 20' - 21'""".i18n,
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
-              'Computer Engineering Intern'.i18n,
-              style: Theme.of(context).textTheme.headline5,
+            _buildExperience(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.developerMobileFlutter,
+              subTitle: AppLocalizations.of(context)!.freelancerTitle,
             ),
-            Text(
-              """Federal University of Sergipe, 19' - 20'""".i18n,
-              style: Theme.of(context).textTheme.bodyText2,
+            const SizedBox(
+              height: 50,
+            ),
+            _buildExperience(
+              crossAxisAlignment: crossAxisAlignment,
+              context: context,
+              title: AppLocalizations.of(context)!.internOccupation,
+              subTitle: AppLocalizations.of(context)!.internTitle,
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildExperience({
+    required CrossAxisAlignment crossAxisAlignment,
+    required BuildContext context,
+    required String title,
+    required String subTitle,
+  }) {
+    return Column(
+      crossAxisAlignment: crossAxisAlignment,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        TextRenderer(
+          element: kIsWeb ? HeadingElement.h5() : null,
+          text: Text(
+            title,
+            style: Theme.of(context).textTheme.headline5,
+          ),
+        ),
+        TextRenderer(
+          text: Text(
+            subTitle,
+            style: Theme.of(context).textTheme.bodyText2,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class SkillWidget extends StatelessWidget {
   @override
@@ -19,13 +20,13 @@ class SkillWidget extends StatelessWidget {
       'HTML/CSS': 30.0,
     };
 
-    return Container(
+    return SizedBox(
       width: orientation == Orientation.portrait
           ? size.width * 0.8
           : size.width * 0.5,
       height: size.height * 0.5,
       child: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: skills.keys.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: (orientation == Orientation.portrait) ? 3 : 4,
@@ -33,7 +34,6 @@ class SkillWidget extends StatelessWidget {
         itemBuilder: (_, index) {
           final key = skills.keys.toList()[index];
           return FittedBox(
-            fit: BoxFit.contain,
             child: CircularPercentIndicator(
               radius: 120,
               lineWidth: 12,
@@ -45,12 +45,14 @@ class SkillWidget extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              footer: Text(
-                "$key",
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1
-                    ?.copyWith(fontSize: 24, color: Colors.black),
+              footer: TextRenderer(
+                text: Text(
+                  key,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      ?.copyWith(fontSize: 24, color: Colors.black),
+                ),
               ),
               circularStrokeCap: CircularStrokeCap.round,
               progressColor: Theme.of(context).primaryColor,
