@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../custom_app_bar/custom_app_bar_widget.dart';
+import 'package:portfolio/app/shared/components/custom_app_bar/custom_app_bar_widget.dart';
 
 class PresentationWidget extends StatelessWidget {
   final String title;
@@ -51,27 +51,26 @@ class PresentationWidget extends StatelessWidget {
               ),
             ),
           ),
-          size.height > 900
-              ? Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 40),
-                    child: Container(
-                      width: 60,
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_downward,
-                          size: 50,
-                        ),
-                        onPressed: () {
-                          goDown(size.height);
-                        },
-                      ),
+          if (size.height > 900)
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                child: SizedBox(
+                  width: 60,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_downward,
+                      size: 50,
                     ),
+                    onPressed: () {
+                      goDown(size.height);
+                    },
                   ),
-                )
-              : Container(),
+                ),
+              ),
+            )
         ],
       ),
     );

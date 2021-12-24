@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:i18n_extension/i18n_widget.dart';
-
-import '../../utils/translation/universal_translation.i18n.dart';
-import 'custom_drawer_controller.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:portfolio/app/feature/translation/supported_locales.dart';
+import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_controller.dart';
+import 'package:portfolio/app/shared/settings/settings_controller.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   final CustomDrawerController controller = CustomDrawerController();
@@ -24,7 +25,7 @@ class CustomDrawerWidget extends StatelessWidget {
               child: InkWell(
                 onTap: controller.goAbout,
                 child: Text(
-                  'about'.i18n,
+                  AppLocalizations.of(context)!.about,
                   style: textTheme,
                 ),
               ),
@@ -35,7 +36,7 @@ class CustomDrawerWidget extends StatelessWidget {
                 child: InkWell(
                   onTap: controller.goPortfolio,
                   child: Text(
-                    'portfolio'.i18n,
+                    AppLocalizations.of(context)!.portfolio,
                     style: textTheme,
                   ),
                 ),
@@ -45,7 +46,7 @@ class CustomDrawerWidget extends StatelessWidget {
               child: InkWell(
                 onTap: controller.goContact,
                 child: Text(
-                  'contact'.i18n,
+                  AppLocalizations.of(context)!.contactAppBar,
                   style: textTheme,
                 ),
               ),
@@ -61,23 +62,29 @@ class CustomDrawerWidget extends StatelessWidget {
     );
   }
 
-  _languages(BuildContext context, TextStyle textTheme) {
+  Widget _languages(BuildContext context, TextStyle textTheme) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Container(
+      child: SizedBox(
         width: 80,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             InkWell(
-              onTap: () => I18n.of(context).locale = Locale("pt", "BR"),
+              onTap: () {
+                Modular.get<SettingsController>()
+                    .setLocaleSelected(SupportedLocale.brazilianPortuguese);
+              },
               child: Image.asset(
                 'assets/images/br.png',
                 width: 30,
               ),
             ),
             InkWell(
-              onTap: () => I18n.of(context).locale = Locale("en", "US"),
+              onTap: () {
+                Modular.get<SettingsController>()
+                    .setLocaleSelected(SupportedLocale.americanEnglish);
+              },
               child: Image.asset(
                 'assets/images/en.png',
                 width: 30,

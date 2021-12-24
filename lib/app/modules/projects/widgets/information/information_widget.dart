@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../contact/contact_controller.dart';
-import '../../../contact/utils/contacts.dart';
-import '../../translation/widgets/information_widget.i18n.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:portfolio/app/modules/contact/contact_controller.dart';
+import 'package:portfolio/app/modules/contact/utils/contacts.dart';
 
 class InformationWidget extends StatelessWidget {
   final ContactController controller = ContactController();
@@ -16,7 +15,7 @@ class InformationWidget extends StatelessWidget {
       const sizeItems = 225.0;
       return Expanded(
         child: ListView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             _image(sizeItems),
             Padding(
@@ -33,7 +32,7 @@ class InformationWidget extends StatelessWidget {
     }
 
     final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
-    return Container(
+    return SizedBox(
       width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -49,7 +48,7 @@ class InformationWidget extends StatelessWidget {
     );
   }
 
-  _image(double sizeItems) {
+  Widget _image(double sizeItems) {
     return SvgPicture.asset(
       'assets/images/projects.svg',
       width: sizeItems,
@@ -57,7 +56,7 @@ class InformationWidget extends StatelessWidget {
     );
   }
 
-  _text(BuildContext context, CrossAxisAlignment crossAxisAlignment) {
+  Widget _text(BuildContext context, CrossAxisAlignment crossAxisAlignment) {
     return FittedBox(
       fit: BoxFit.scaleDown,
       child: Column(
@@ -65,16 +64,15 @@ class InformationWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Sorry'.i18n,
+            AppLocalizations.of(context)!.informationWidgetTitle,
             style:
                 Theme.of(context).textTheme.headline5?.copyWith(fontSize: 100),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Text(
-            '''I didn't have the opportunity to develop\nsomething really ready to put here,\nbut I have some projects on github\nthat I developed during my studies and\nI would love for you to take a look.'''
-                .i18n,
+            AppLocalizations.of(context)!.informationWidgetSubtitle,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText2,
           ),
@@ -84,10 +82,10 @@ class InformationWidget extends StatelessWidget {
     );
   }
 
-  _buttonGitHub() {
+  Widget _buttonGitHub() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
+      child: SizedBox(
         width: 300,
         // height: 50,
         child: InkWell(

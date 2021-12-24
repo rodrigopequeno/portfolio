@@ -19,13 +19,13 @@ class SkillWidget extends StatelessWidget {
       'HTML/CSS': 30.0,
     };
 
-    return Container(
+    return SizedBox(
       width: orientation == Orientation.portrait
           ? size.width * 0.8
           : size.width * 0.5,
       height: size.height * 0.5,
       child: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: skills.keys.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: (orientation == Orientation.portrait) ? 3 : 4,
@@ -33,7 +33,6 @@ class SkillWidget extends StatelessWidget {
         itemBuilder: (_, index) {
           final key = skills.keys.toList()[index];
           return FittedBox(
-            fit: BoxFit.contain,
             child: CircularPercentIndicator(
               radius: 120,
               lineWidth: 12,
@@ -46,7 +45,7 @@ class SkillWidget extends StatelessWidget {
                 height: 50,
               ),
               footer: Text(
-                "$key",
+                key,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1

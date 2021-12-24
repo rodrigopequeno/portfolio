@@ -2,12 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-import '../../shared/components/custom_app_bar/custom_app_bar_widget.dart';
-import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
-import '../contact/translation/contact_page.i18n.dart';
-import 'contact_controller.dart';
-import 'utils/contacts.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:portfolio/app/modules/contact/contact_controller.dart';
+import 'package:portfolio/app/modules/contact/utils/contacts.dart';
+import 'package:portfolio/app/shared/components/custom_app_bar/custom_app_bar_widget.dart';
+import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_widget.dart';
 
 class ContactPage extends StatefulWidget {
   final String title;
@@ -20,7 +19,7 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends ModularState<ContactPage, ContactController> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  _openDrawer() {
+  void _openDrawer() {
     _scaffoldKey.currentState?.openEndDrawer();
   }
 
@@ -49,11 +48,11 @@ class _ContactPageState extends ModularState<ContactPage, ContactController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Contact'.i18n,
+                        AppLocalizations.of(context)!.contactTitle,
                         style: Theme.of(context).textTheme.headline1,
                       ),
                       Text(
-                        """Have a question or want\nto work together?""".i18n,
+                        AppLocalizations.of(context)!.contactSubtitle,
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline2,
                       ),

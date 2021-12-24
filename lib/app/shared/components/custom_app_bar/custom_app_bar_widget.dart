@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:i18n_extension/i18n_widget.dart';
-import '../../utils/translation/universal_translation.i18n.dart';
-
-import 'custom_app_bar_controller.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:portfolio/app/feature/translation/supported_locales.dart';
+import 'package:portfolio/app/shared/components/custom_app_bar/custom_app_bar_controller.dart';
+import 'package:portfolio/app/shared/settings/settings_controller.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final CustomAppBarController controller = CustomAppBarController();
@@ -24,14 +25,13 @@ class CustomAppBarWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               InkWell(
                 onTap: controller.goAbout,
-                child: FittedBox(
+                child: const FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 20),
                     child: Text(
                       "RP",
                       style: TextStyle(
@@ -43,13 +43,12 @@ class CustomAppBarWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                child: Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      icon: Icon(Icons.menu),
-                      onPressed: openDrawer,
-                    )),
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: openDrawer,
+                ),
               ),
             ],
           ),
@@ -63,14 +62,13 @@ class CustomAppBarWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             InkWell(
               onTap: controller.goAbout,
-              child: FittedBox(
+              child: const FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(left: 20),
                   child: Text(
                     "RP",
                     style: TextStyle(
@@ -82,7 +80,7 @@ class CustomAppBarWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
               width: size.width - 200,
               child: Align(
                 alignment: Alignment.centerRight,
@@ -95,7 +93,7 @@ class CustomAppBarWidget extends StatelessWidget {
                       child: InkWell(
                         onTap: controller.goContact,
                         child: Text(
-                          'contact'.i18n,
+                          AppLocalizations.of(context)!.contactAppBar,
                           style: textTheme,
                         ),
                       ),
@@ -106,7 +104,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         child: InkWell(
                           onTap: controller.goPortfolio,
                           child: Text(
-                            'portfolio'.i18n,
+                            AppLocalizations.of(context)!.portfolio,
                             style: textTheme,
                           ),
                         ),
@@ -116,7 +114,7 @@ class CustomAppBarWidget extends StatelessWidget {
                       child: InkWell(
                         onTap: controller.goAbout,
                         child: Text(
-                          'about'.i18n,
+                          AppLocalizations.of(context)!.about,
                           style: textTheme,
                         ),
                       ),
@@ -131,23 +129,29 @@ class CustomAppBarWidget extends StatelessWidget {
     );
   }
 
-  _languages(BuildContext context, TextStyle textTheme) {
+  Widget _languages(BuildContext context, TextStyle textTheme) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Container(
+      child: SizedBox(
         width: 80,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             InkWell(
-              onTap: () => I18n.of(context).locale = Locale("pt", "BR"),
+              onTap: () {
+                Modular.get<SettingsController>()
+                    .setLocaleSelected(SupportedLocale.brazilianPortuguese);
+              },
               child: Image.asset(
                 'assets/images/br.png',
                 width: 30,
               ),
             ),
             InkWell(
-              onTap: () => I18n.of(context).locale = Locale("en", "US"),
+              onTap: () {
+                Modular.get<SettingsController>()
+                    .setLocaleSelected(SupportedLocale.americanEnglish);
+              },
               child: Image.asset(
                 'assets/images/en.png',
                 width: 30,

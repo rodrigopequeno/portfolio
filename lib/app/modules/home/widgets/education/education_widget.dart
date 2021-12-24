@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../translation/widgets/education/education_widget.i18n.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
 
 class EducationWidget extends StatelessWidget {
   @override
@@ -8,23 +8,24 @@ class EducationWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     if (orientation == Orientation.portrait) {
-      final sizeItems = 225.0;
-      return Container(
+      const sizeItems = 225.0;
+      return SizedBox(
         width: size.width * 0.8,
         child: ListView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             _image(sizeItems),
             Padding(
-                padding: const EdgeInsets.only(top: 20, right: 40, left: 40),
-                child: _text(context, sizeItems, CrossAxisAlignment.center))
+              padding: const EdgeInsets.only(top: 20, right: 40, left: 40),
+              child: _text(context, sizeItems, CrossAxisAlignment.center),
+            )
           ],
         ),
       );
     }
 
     final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
-    return Container(
+    return SizedBox(
       width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,7 +37,7 @@ class EducationWidget extends StatelessWidget {
     );
   }
 
-  _image(double sizeItems) {
+  Widget _image(double sizeItems) {
     return SvgPicture.asset(
       'assets/images/education.svg',
       width: sizeItems,
@@ -44,8 +45,11 @@ class EducationWidget extends StatelessWidget {
     );
   }
 
-  _text(BuildContext context, double sizeItems,
-      CrossAxisAlignment crossAxisAlignment) {
+  Widget _text(
+    BuildContext context,
+    double sizeItems,
+    CrossAxisAlignment crossAxisAlignment,
+  ) {
     return SizedBox(
       width: sizeItems,
       height: sizeItems,
@@ -56,33 +60,33 @@ class EducationWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              'Bachelor of Computer Science'.i18n,
+              AppLocalizations.of(context)!.bachelorScienceTitle,
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
-              """Federal University of Sergipe, 20' """.i18n,
+              AppLocalizations.of(context)!.bachelorScienceSubtitle,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Text(
-              'Bachelor of Computer Engineering'.i18n,
+              AppLocalizations.of(context)!.bachelorEngineeringTitle,
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
-              """Federal University of Sergipe, 16' - 20' (Not finished)""".i18n,
+              AppLocalizations.of(context)!.bachelorEngineeringSubtitle,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Text(
-              'Mechanical Technician'.i18n,
+              AppLocalizations.of(context)!.technicianTitle,
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
-              """National Industrial Learning Service, 14' - 16'""".i18n,
+              AppLocalizations.of(context)!.technicianSubtitle,
               style: Theme.of(context).textTheme.bodyText2,
             ),
           ],
