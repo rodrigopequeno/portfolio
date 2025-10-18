@@ -6,18 +6,14 @@ part 'projects_controller.g.dart';
 class ProjectsController = _ProjectsControllerBase with _$ProjectsController;
 
 abstract class _ProjectsControllerBase with Store {
-  @observable
   ScrollController scrollController = ScrollController();
-
-  @action
-  double getPositionScroll() => scrollController.offset;
 
   @action
   void goDown(double height) {
     try {
       scrollController.animateTo(
         height,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
     } on Exception catch (_) {}
@@ -28,7 +24,7 @@ abstract class _ProjectsControllerBase with Store {
     try {
       scrollController.animateTo(
         0,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
     } on Exception catch (_) {}

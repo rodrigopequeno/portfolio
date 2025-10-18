@@ -1,19 +1,23 @@
+import 'dart:html';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../custom_app_bar/custom_app_bar_widget.dart';
+import 'package:portfolio/app/shared/components/custom_app_bar/custom_app_bar_widget.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class PresentationWidget extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Function openDrawer;
+  final void Function() openDrawer;
   final void Function(double) goDown;
 
-  const PresentationWidget(
-      {Key key,
-      @required this.goDown,
-      this.title,
-      this.subtitle,
-      @required this.openDrawer})
-      : super(key: key);
+  const PresentationWidget({
+    Key? key,
+    required this.goDown,
+    required this.title,
+    required this.subtitle,
+    required this.openDrawer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,40 +42,45 @@ class PresentationWidget extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.headline1,
+                    TextRenderer(
+                      element: kIsWeb ? HeadingElement.h1() : null,
+                      text: Text(
+                        title,
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
                     ),
-                    Text(
-                      subtitle,
-                      style: Theme.of(context).textTheme.headline2,
+                    TextRenderer(
+                      element: kIsWeb ? HeadingElement.h2() : null,
+                      text: Text(
+                        subtitle,
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          size.height > 900
-              ? Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 40),
-                    child: Container(
-                      width: 60,
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_downward,
-                          size: 50,
-                        ),
-                        onPressed: () {
-                          goDown(size.height);
-                        },
-                      ),
+          if (size.height > 900)
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                child: SizedBox(
+                  width: 60,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_downward,
+                      size: 50,
                     ),
+                    onPressed: () {
+                      goDown(size.height);
+                    },
                   ),
-                )
-              : Container(),
+                ),
+              ),
+            )
         ],
       ),
     );

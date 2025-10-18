@@ -45,3 +45,6 @@ app.*.map.json
 .slidy/
 android/
 ios/
+linux/
+macos/
+windows/

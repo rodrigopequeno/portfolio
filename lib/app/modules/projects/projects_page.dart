@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../shared/components/custom_drawer/custom_drawer_widget.dart';
-
-import '../../shared/components/presentation/presentation_widget.dart';
-import '../projects/translation/projects_page.i18n.dart';
-import 'projects_controller.dart';
-import 'widgets/information/information_widget.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:portfolio/app/modules/projects/projects_controller.dart';
+import 'package:portfolio/app/modules/projects/widgets/information/information_widget.dart';
+import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_widget.dart';
+import 'package:portfolio/app/shared/components/presentation/presentation_widget.dart';
 
 class ProjectsPage extends StatefulWidget {
   final String title;
-  const ProjectsPage({Key key, this.title = "Projects"}) : super(key: key);
+  const ProjectsPage({Key? key, this.title = "Projects"}) : super(key: key);
 
   @override
   _ProjectsPageState createState() => _ProjectsPageState();
@@ -19,8 +18,8 @@ class _ProjectsPageState
     extends ModularState<ProjectsPage, ProjectsController> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  _openDrawer() {
-    _scaffoldKey.currentState.openEndDrawer();
+  void _openDrawer() {
+    _scaffoldKey.currentState?.openEndDrawer();
   }
 
   @override
@@ -36,21 +35,18 @@ class _ProjectsPageState
           controller: controller.scrollController,
           children: <Widget>[
             PresentationWidget(
-              title: 'Projects'.i18n,
-              subtitle:
-                  """A collection of my projects\ndeveloped in recent years."""
-                      .i18n,
+              title: AppLocalizations.of(context)!.projectsTitle,
+              subtitle: AppLocalizations.of(context)!.projectsSubtitle,
               goDown: controller.goDown,
               openDrawer: _openDrawer,
             ),
-            Container(
+            SizedBox(
               height: size.height < 900 ? 900 : size.height,
               width: size.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Container(
+                  const SizedBox(
                     height: 130,
                     width: 60,
                   ),
@@ -59,8 +55,10 @@ class _ProjectsPageState
                     alignment: Alignment.bottomRight,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 40, vertical: 40),
-                      child: Container(
+                        horizontal: 40,
+                        vertical: 40,
+                      ),
+                      child: SizedBox(
                         width: 60,
                         child: IconButton(
                           icon: Icon(

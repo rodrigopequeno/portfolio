@@ -1,6 +1,10 @@
+import 'dart:html';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../../../../shared/utils/plataform_svg.dart';
-import '../../translation/widgets/about/about_widget.i18n.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:portfolio/app/feature/translation/app_localizations.dart';
+import 'package:seo_renderer/seo_renderer.dart';
 
 class AboutWidget extends StatelessWidget {
   @override
@@ -9,24 +13,28 @@ class AboutWidget extends StatelessWidget {
     final orientation = MediaQuery.of(context).orientation;
     if (orientation == Orientation.portrait) {
       const sizeItems = 225.0;
-      return Container(
+      return SizedBox(
         width: size.width * 0.8,
         child: ListView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             _image(sizeItems),
             Padding(
               padding: const EdgeInsets.only(top: 20, right: 40, left: 40),
-              child: _text(context, sizeItems, CrossAxisAlignment.center,
-                  TextAlign.center),
+              child: _text(
+                context,
+                sizeItems,
+                CrossAxisAlignment.center,
+                TextAlign.center,
+              ),
             )
           ],
         ),
       );
     }
 
-    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500;
-    return Container(
+    final sizeItems = size.width < 1300 ? size.width * 0.4 : 500.0;
+    return SizedBox(
       width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -38,16 +46,20 @@ class AboutWidget extends StatelessWidget {
     );
   }
 
-  _image(double sizeItems) {
-    return PlatformSvg().asset(
+  Widget _image(double sizeItems) {
+    return SvgPicture.asset(
       'assets/images/about.svg',
       width: sizeItems,
       height: sizeItems,
     );
   }
 
-  _text(BuildContext context, double sizeItems,
-      CrossAxisAlignment crossAxisAlignment, TextAlign textAlign) {
+  Widget _text(
+    BuildContext context,
+    double sizeItems,
+    CrossAxisAlignment crossAxisAlignment,
+    TextAlign textAlign,
+  ) {
     return SizedBox(
       width: sizeItems,
       height: sizeItems,
@@ -57,15 +69,20 @@ class AboutWidget extends StatelessWidget {
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Hi.'.i18n,
-              style: Theme.of(context).textTheme.headline5,
+            TextRenderer(
+              element: kIsWeb ? HeadingElement.h1() : null,
+              text: Text(
+                AppLocalizations.of(context)!.aboutTitle,
+                style: Theme.of(context).textTheme.headline5,
+              ),
             ),
-            Text(
-              '''I am a freelance mobile developer in\nSergipe, BR. I am currently a student\nof computer engineering at the\nFederal University of Sergipe.'''
-                  .i18n,
-              textAlign: textAlign,
-              style: Theme.of(context).textTheme.bodyText2,
+            TextRenderer(
+              element: kIsWeb ? HeadingElement.h2() : null,
+              text: Text(
+                AppLocalizations.of(context)!.aboutSubtitle,
+                textAlign: textAlign,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
             ),
           ],
         ),
