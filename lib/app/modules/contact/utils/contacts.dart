@@ -27,19 +27,14 @@ extension ContactsExtension on Contacts {
     switch (this) {
       case Contacts.linkedIn:
         typeContact = "in";
-        break;
       case Contacts.github:
         typeContact = "github";
-        break;
       case Contacts.mail:
         typeContact = 'mail';
-        break;
       case Contacts.whatsApp:
         typeContact = 'whatsapp';
-        break;
       case Contacts.instagram:
         typeContact = 'instagram';
-        break;
     }
     return 'icon_$typeContact.png';
   }

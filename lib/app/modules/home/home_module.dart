@@ -4,12 +4,12 @@ import 'package:portfolio/app/modules/home/home_page.dart';
 
 class HomeModule extends Module {
   @override
-  final List<Bind> binds = [
-    Bind((i) => HomeController()),
-  ];
+  void binds(Injector i) {
+    i.add(HomeController.new);
+  }
 
   @override
-  final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => const HomePage()),
-  ];
+  void routes(RouteManager r) {
+    r.child(Modular.initialRoute, child: (_) => const HomePage());
+  }
 }

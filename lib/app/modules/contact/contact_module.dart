@@ -4,12 +4,12 @@ import 'package:portfolio/app/modules/contact/contact_page.dart';
 
 class ContactModule extends Module {
   @override
-  final List<Bind> binds = [
-    Bind((i) => ContactController()),
-  ];
+  void binds(Injector i) {
+    i.add(ContactController.new);
+  }
 
   @override
-  final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => const ContactPage()),
-  ];
+  void routes(RouteManager r) {
+    r.child(Modular.initialRoute, child: (_) => const ContactPage());
+  }
 }

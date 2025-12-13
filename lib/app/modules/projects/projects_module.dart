@@ -4,12 +4,12 @@ import 'package:portfolio/app/modules/projects/projects_page.dart';
 
 class ProjectsModule extends Module {
   @override
-  final List<Bind> binds = [
-    Bind((i) => ProjectsController()),
-  ];
+  void binds(Injector i) {
+    i.add(ProjectsController.new);
+  }
 
   @override
-  final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => const ProjectsPage()),
-  ];
+  void routes(RouteManager r) {
+    r.child(Modular.initialRoute, child: (_) => const ProjectsPage());
+  }
 }

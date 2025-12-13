@@ -1,10 +1,6 @@
-import 'dart:html';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app/feature/translation/app_localizations.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class ExperienceWidget extends StatelessWidget {
   @override
@@ -112,18 +108,13 @@ class ExperienceWidget extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TextRenderer(
-          element: kIsWeb ? HeadingElement.h5() : null,
-          text: Text(
-            title,
-            style: Theme.of(context).textTheme.headline5,
-          ),
+        Text(
+          title,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
-        TextRenderer(
-          text: Text(
-            subTitle,
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
+        Text(
+          subTitle,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ],
     );

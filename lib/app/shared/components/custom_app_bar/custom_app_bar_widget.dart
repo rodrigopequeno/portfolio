@@ -1,25 +1,21 @@
-import 'dart:html';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/feature/translation/app_localizations.dart';
 import 'package:portfolio/app/feature/translation/supported_locales.dart';
 import 'package:portfolio/app/shared/components/custom_app_bar/custom_app_bar_controller.dart';
 import 'package:portfolio/app/shared/settings/settings_controller.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final CustomAppBarController controller = CustomAppBarController();
   final void Function() openDrawer;
   CustomAppBarWidget({
-    Key? key,
+    super.key,
     required this.openDrawer,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme.subtitle1!;
+    final textTheme = Theme.of(context).textTheme.titleMedium!;
     final size = MediaQuery.of(context).size;
     if (size.width < 710) {
       return Container(
@@ -32,19 +28,16 @@ class CustomAppBarWidget extends StatelessWidget {
             children: <Widget>[
               InkWell(
                 onTap: controller.goAbout,
-                child: FittedBox(
+                child: const FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: TextRenderer(
-                      element: kIsWeb ? HeadingElement.h6() : null,
-                      text: const Text(
-                        "RP",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 60,
-                          fontFamily: 'Exotc350 Bd BT',
-                        ),
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      "RP",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 60,
+                        fontFamily: 'Exotc350 Bd BT',
                       ),
                     ),
                   ),
@@ -72,19 +65,16 @@ class CustomAppBarWidget extends StatelessWidget {
           children: <Widget>[
             InkWell(
               onTap: controller.goAbout,
-              child: FittedBox(
+              child: const FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: TextRenderer(
-                    element: kIsWeb ? HeadingElement.h6() : null,
-                    text: const Text(
-                      "RP",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 60,
-                        fontFamily: 'Exotc350 Bd BT',
-                      ),
+                  padding: EdgeInsets.only(left: 20),
+                  child: Text(
+                    "RP",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 60,
+                      fontFamily: 'Exotc350 Bd BT',
                     ),
                   ),
                 ),
@@ -102,11 +92,9 @@ class CustomAppBarWidget extends StatelessWidget {
                     Center(
                       child: InkWell(
                         onTap: controller.goContact,
-                        child: TextRenderer(
-                          text: Text(
-                            AppLocalizations.of(context)!.contactAppBar,
-                            style: textTheme,
-                          ),
+                        child: Text(
+                          AppLocalizations.of(context)!.contactAppBar,
+                          style: textTheme,
                         ),
                       ),
                     ),
@@ -115,11 +103,9 @@ class CustomAppBarWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 35),
                         child: InkWell(
                           onTap: controller.goPortfolio,
-                          child: TextRenderer(
-                            text: Text(
-                              AppLocalizations.of(context)!.portfolio,
-                              style: textTheme,
-                            ),
+                          child: Text(
+                            AppLocalizations.of(context)!.portfolio,
+                            style: textTheme,
                           ),
                         ),
                       ),
@@ -127,11 +113,9 @@ class CustomAppBarWidget extends StatelessWidget {
                     Center(
                       child: InkWell(
                         onTap: controller.goAbout,
-                        child: TextRenderer(
-                          text: Text(
-                            AppLocalizations.of(context)!.about,
-                            style: textTheme,
-                          ),
+                        child: Text(
+                          AppLocalizations.of(context)!.about,
+                          style: textTheme,
                         ),
                       ),
                     ),

@@ -4,30 +4,27 @@ publish_to: 'none'
 version: 2.0.0+2
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   auto_size_text: ^3.0.0
-  carousel_slider: ^4.0.0
+  carousel_slider: ^5.1.1
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_mobx: ^2.0.2
-  flutter_modular: ^4.1.1
-  flutter_svg: ^1.0.0
-  image_network: ^2.1.0+1
-  lint: ^1.8.1
-  mobx: ^2.0.4
-  percent_indicator: ^3.4.0
-  seo_renderer: ^0.3.0
-  url_launcher: ^6.0.12
+  flutter_modular: ^6.4.1
+  flutter_svg: ^2.0.0
+  image_network: ^2.6.0
+  lint: ^2.0.0
+  modular_core: ^3.4.1
+  modular_interfaces: ^3.0.0
+  percent_indicator: ^4.2.0
+  url_launcher: ^6.3.0
 
 dev_dependencies:
-  build_runner: ^2.1.4
   flutter_test:
     sdk: flutter
-  mobx_codegen: ^2.0.5+1
   mockito: ^5.0.16
 
 flutter:
@@ -47,7 +44,3 @@ flutter:
       fonts:
         - asset: assets/fonts/exotc350_bd_bt/Exotc350BdBTBold.ttf
 
-scripts:
-  mobxB: flutter pub run build_runner build --delete-conflicting-outputs
-  mobxW: flutter pub run build_runner watch --delete-conflicting-outputs
-  hive: flutter pub run build_runner build

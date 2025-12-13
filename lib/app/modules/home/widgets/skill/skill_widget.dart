@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class SkillWidget extends StatelessWidget {
   @override
@@ -45,14 +44,12 @@ class SkillWidget extends StatelessWidget {
                 width: 50,
                 height: 50,
               ),
-              footer: TextRenderer(
-                text: Text(
-                  key,
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      ?.copyWith(fontSize: 24, color: Colors.black),
-                ),
+              footer: Text(
+                key,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontSize: 24, color: Colors.black),
               ),
               circularStrokeCap: CircularStrokeCap.round,
               progressColor: Theme.of(context).primaryColor,

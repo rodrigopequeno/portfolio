@@ -1,12 +1,8 @@
-import 'dart:html';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app/feature/translation/app_localizations.dart';
 import 'package:portfolio/app/modules/contact/contact_controller.dart';
 import 'package:portfolio/app/modules/contact/utils/contacts.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class InformationWidget extends StatelessWidget {
   final ContactController controller = ContactController();
@@ -67,25 +63,20 @@ class InformationWidget extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TextRenderer(
-            element: kIsWeb ? HeadingElement.h5() : null,
-            text: Text(
-              AppLocalizations.of(context)!.informationWidgetTitle,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline5
-                  ?.copyWith(fontSize: 100),
-            ),
+          Text(
+            AppLocalizations.of(context)!.informationWidgetTitle,
+            style: Theme.of(context)
+                .textTheme
+                .headlineMedium
+                ?.copyWith(fontSize: 100),
           ),
           const SizedBox(
             height: 40,
           ),
-          TextRenderer(
-            text: Text(
-              AppLocalizations.of(context)!.informationWidgetSubtitle,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
+          Text(
+            AppLocalizations.of(context)!.informationWidgetSubtitle,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           _buttonGitHub(),
         ],

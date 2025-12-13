@@ -8,15 +8,21 @@ import 'package:portfolio/app/shared/components/presentation/presentation_widget
 
 class ProjectsPage extends StatefulWidget {
   final String title;
-  const ProjectsPage({Key? key, this.title = "Projects"}) : super(key: key);
+  const ProjectsPage({super.key, this.title = "Projects"});
 
   @override
   _ProjectsPageState createState() => _ProjectsPageState();
 }
 
-class _ProjectsPageState
-    extends ModularState<ProjectsPage, ProjectsController> {
+class _ProjectsPageState extends State<ProjectsPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  late final ProjectsController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Modular.get<ProjectsController>();
+  }
 
   void _openDrawer() {
     _scaffoldKey.currentState?.openEndDrawer();

@@ -4,14 +4,13 @@ import 'package:portfolio/app/feature/translation/app_localizations.dart';
 import 'package:portfolio/app/feature/translation/supported_locales.dart';
 import 'package:portfolio/app/shared/components/custom_drawer/custom_drawer_controller.dart';
 import 'package:portfolio/app/shared/settings/settings_controller.dart';
-import 'package:seo_renderer/seo_renderer.dart';
 
 class CustomDrawerWidget extends StatelessWidget {
   final CustomDrawerController controller = CustomDrawerController();
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme.subtitle1!;
+    final textTheme = Theme.of(context).textTheme.titleMedium!;
     final size = MediaQuery.of(context).size;
 
     return Drawer(
@@ -25,11 +24,9 @@ class CustomDrawerWidget extends StatelessWidget {
             Center(
               child: InkWell(
                 onTap: controller.goAbout,
-                child: TextRenderer(
-                  text: Text(
-                    AppLocalizations.of(context)!.about,
-                    style: textTheme,
-                  ),
+                child: Text(
+                  AppLocalizations.of(context)!.about,
+                  style: textTheme,
                 ),
               ),
             ),
@@ -38,11 +35,9 @@ class CustomDrawerWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: InkWell(
                   onTap: controller.goPortfolio,
-                  child: TextRenderer(
-                    text: Text(
-                      AppLocalizations.of(context)!.portfolio,
-                      style: textTheme,
-                    ),
+                  child: Text(
+                    AppLocalizations.of(context)!.portfolio,
+                    style: textTheme,
                   ),
                 ),
               ),
@@ -50,11 +45,9 @@ class CustomDrawerWidget extends StatelessWidget {
             Center(
               child: InkWell(
                 onTap: controller.goContact,
-                child: TextRenderer(
-                  text: Text(
-                    AppLocalizations.of(context)!.contactAppBar,
-                    style: textTheme,
-                  ),
+                child: Text(
+                  AppLocalizations.of(context)!.contactAppBar,
+                  style: textTheme,
                 ),
               ),
             ),

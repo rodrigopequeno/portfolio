@@ -14,24 +14,24 @@ class AppTheme {
       secondaryHeaderColor: secondaryColor,
       iconTheme: const IconThemeData(color: Colors.white),
       textTheme: const TextTheme(
-        headline1: TextStyle(color: Colors.white, fontFamily: 'Patua One'),
-        headline2: TextStyle(color: Colors.white, fontFamily: 'Patua One'),
-        headline5: TextStyle(
+        displayLarge: TextStyle(color: Colors.white, fontFamily: 'Patua One'),
+        displayMedium: TextStyle(color: Colors.white, fontFamily: 'Patua One'),
+        headlineMedium: TextStyle(
           color: primaryColor,
           fontFamily: 'Patua One',
           fontSize: 50,
         ),
-        subtitle1: TextStyle(
+        titleMedium: TextStyle(
           color: Colors.white,
           fontFamily: 'Baloo 2',
           fontSize: 30,
         ),
-        subtitle2: TextStyle(
+        titleSmall: TextStyle(
           color: primaryColor,
           fontFamily: 'Patua One',
           fontSize: 30,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           color: Colors.black,
           fontFamily: 'Baloo 2',
           fontSize: 40,

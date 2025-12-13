@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 
-part 'projects_controller.g.dart';
+//ignore: public_member_api_docs
+class ProjectsController {
+  final ScrollController scrollController = ScrollController();
 
-class ProjectsController = _ProjectsControllerBase with _$ProjectsController;
-
-abstract class _ProjectsControllerBase with Store {
-  ScrollController scrollController = ScrollController();
-
-  @action
   void goDown(double height) {
     try {
       scrollController.animateTo(
@@ -19,7 +14,6 @@ abstract class _ProjectsControllerBase with Store {
     } on Exception catch (_) {}
   }
 
-  @action
   void goTop() {
     try {
       scrollController.animateTo(
@@ -28,5 +22,9 @@ abstract class _ProjectsControllerBase with Store {
         curve: Curves.easeOut,
       );
     } on Exception catch (_) {}
+  }
+
+  void dispose() {
+    scrollController.dispose();
   }
 }

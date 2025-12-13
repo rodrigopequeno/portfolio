@@ -1,12 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:mobx/mobx.dart';
 
-part 'custom_app_bar_controller.g.dart';
-
-class CustomAppBarController = _CustomAppBarControllerBase
-    with _$CustomAppBarController;
-
-abstract class _CustomAppBarControllerBase with Store {
+//ignore: public_member_api_docs
+class CustomAppBarController {
   void goAbout() {
     Modular.to.pushNamed('/');
   }

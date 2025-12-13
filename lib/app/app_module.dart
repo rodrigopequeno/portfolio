@@ -8,28 +8,28 @@ import 'package:portfolio/app/shared/settings/settings_controller.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [
-    Bind((i) => CustomDrawerController()),
-    Bind((i) => CustomAppBarController()),
-    Bind((i) => SettingsController()),
-  ];
+  void binds(Injector i) {
+    i.addLazySingleton(CustomDrawerController.new);
+    i.addLazySingleton(CustomAppBarController.new);
+    i.addLazySingleton(SettingsController.new);
+  }
 
   @override
-  final List<ModularRoute> routes = [
-    ModuleRoute(
+  void routes(RouteManager r) {
+    r.module(
       Modular.initialRoute,
       module: HomeModule(),
       transition: TransitionType.fadeIn,
-    ),
-    ModuleRoute(
+    );
+    r.module(
       '/portfolio',
       module: ProjectsModule(),
       transition: TransitionType.fadeIn,
-    ),
-    ModuleRoute(
+    );
+    r.module(
       '/contact',
       module: ContactModule(),
       transition: TransitionType.fadeIn,
-    ),
-  ];
+    );
+  }
 }
